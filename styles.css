@@ -287,16 +287,58 @@ body > div:first-of-type > main > ul {
 }
 
 body > div:first-of-type > main > ul {
-  gap: 24px;
+  gap: 36px;
   margin-top: 32px;
 }
 
 body > div:first-of-type > main > ul > li {
-  min-height: 143px;
-  padding: 19px;
-  border-radius: 2rem;
+  min-height: 208px;
+  padding: 23px 26px;
   color: #241313;
   box-shadow: 0 12px 28px rgb(75 0 0 / 16%);
+}
+
+/* Each feature has a fixed card-like silhouette. The individual `rotate`
+   values are deliberately static, so the cards feel casually placed without
+   ever spinning or wobbling. */
+.feature-card-shapes {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.feature-card {
+  overflow: hidden;
+  box-shadow: none;
+  filter: drop-shadow(0 14px 12px rgb(75 0 0 / 38%));
+  rotate: var(--feature-tilt, 0deg);
+}
+
+.feature-card--paste {
+  --feature-tilt: -3.2deg;
+  border-radius: 2.75rem 3.4rem 2.8rem 3.6rem;
+}
+
+.feature-card--history {
+  --feature-tilt: 2.8deg;
+  padding: 55px 35px 20px;
+  scale: 1.06;
+  z-index: 1;
+  clip-path: url(#rounded-pentagon);
+}
+
+.feature-card--private {
+  --feature-tilt: -2.6deg;
+  padding: 67px 29px 15px;
+  scale: 1.06;
+  z-index: 1;
+  clip-path: url(#rounded-hexagon);
+}
+
+.feature-card--pro {
+  --feature-tilt: 3.1deg;
+  border-radius: 3.7rem 2.6rem 3.45rem 2.9rem;
 }
 
 body > div:first-of-type > main > ul > li h3 {

@@ -7,9 +7,22 @@
   <meta name="description" content="ScanBoard is a keyboard with a built-in QR/barcode scanner. Built for warehouse workflows." />
   <link rel="icon" type="image/png" href="assets/icon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=feature-shapes-v6" />
 </head>
 <body class="min-h-dvh text-base font-normal text-[#1b1b1f] bg-white p-3.5">
+
+  <!-- Soft-cornered clip paths for the feature cards. The paths use the card's
+       own bounds, so they retain their proportions at every breakpoint. -->
+  <svg class="feature-card-shapes" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="rounded-pentagon" clipPathUnits="objectBoundingBox">
+        <path d="M .42,.095 Q .50,.04 .58,.095 L .88,.31 Q .95,.37 .925,.47 L .80,.86 Q .78,.96 .68,.96 L .32,.96 Q .22,.96 .20,.86 L .075,.47 Q .05,.37 .12,.31 Z" />
+      </clipPath>
+      <clipPath id="rounded-hexagon" clipPathUnits="objectBoundingBox">
+        <path d="M .36,.04 L .64,.04 Q .70,.04 .735,.105 L .91,.43 Q .95,.50 .91,.57 L .735,.895 Q .70,.96 .64,.96 L .36,.96 Q .30,.96 .265,.895 L .09,.57 Q .05,.50 .09,.43 L .265,.105 Q .30,.04 .36,.04 Z" />
+      </clipPath>
+    </defs>
+  </svg>
 
   <div class="bg-[#b71c1c] rounded-[2.5rem] px-3.5 pt-0 pb-3.5 overflow-hidden">
   <nav class="flex items-center justify-between max-w-5xl mx-auto relative z-10 overflow-hidden">
@@ -55,10 +68,10 @@
   <main class="max-w-5xl mx-auto mt-14 px-1">
     <h2 id="features" class="font-anton text-4xl text-white scroll-mt-24">WHY CREWS LOVE IT</h2>
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mt-6">
-      <li class="bg-white rounded-[2rem] p-5"><h3 class="font-anton text-lg">Instant paste</h3><p class="text-sm mt-1 text-gray-600">Scan codes straight into WMS forms, invoices, and chat — wherever the keyboard works.</p></li>
-      <li class="bg-white rounded-[2rem] p-5"><h3 class="font-anton text-lg">Scan history</h3><p class="text-sm mt-1 text-gray-600">Reuse recent scans without re-scanning. Perfect for labels you type again.</p></li>
-      <li class="bg-white rounded-[2rem] p-5"><h3 class="font-anton text-lg">Private by design</h3><p class="text-sm mt-1 text-gray-600">Camera is used for scanning only. No account required. No data shared.</p></li>
-      <li class="bg-white rounded-[2rem] p-5"><h3 class="font-anton text-lg">Pro tools</h3><p class="text-sm mt-1 text-gray-600">Unlock profiles, formatting, and regex for advanced warehouse tooling.</p></li>
+      <li class="feature-card feature-card--paste bg-white p-5"><h3 class="font-anton text-lg">Instant paste</h3><p class="text-sm mt-1 text-gray-600">Scan codes straight into WMS forms, invoices, and chat — wherever the keyboard works.</p></li>
+      <li class="feature-card feature-card--history bg-white p-5"><h3 class="font-anton text-lg">Scan history</h3><p class="text-sm mt-1 text-gray-600">Reuse recent scans without re-scanning. Perfect for labels you type again.</p></li>
+      <li class="feature-card feature-card--private bg-white p-5"><h3 class="font-anton text-lg">Private by design</h3><p class="text-sm mt-1 text-gray-600">Camera is used for scanning only. No account required. No data shared.</p></li>
+      <li class="feature-card feature-card--pro bg-white p-5"><h3 class="font-anton text-lg">Pro tools</h3><p class="text-sm mt-1 text-gray-600">Unlock profiles, formatting, and regex for advanced warehouse tooling.</p></li>
     </ul>
 
     <h2 id="workflow" class="font-anton text-4xl text-white mt-16 scroll-mt-24">HOW IT RUNS A SHIFT</h2>
