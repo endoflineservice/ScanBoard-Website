@@ -42,16 +42,9 @@ body > div:first-of-type > nav > div:first-child {
   color: #b71c1c;
 }
 
-body > div:first-of-type > nav > div:first-child::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 42px;
-  height: 42px;
-  background: #7f0000;
-  border-top-left-radius: 42px;
-  pointer-events: none;
+body > div:first-of-type > nav > div:first-child > * {
+  position: relative;
+  z-index: 1;
 }
 
 body > div:first-of-type > nav > div:first-child img {
@@ -67,9 +60,11 @@ body > div:first-of-type > nav > div:first-child span {
 
 body > div:first-of-type > nav > div:last-child {
   flex: 1;
-  padding: 13px 12px 13px 25px;
+  z-index: 3;
+  margin-left: -42px;
+  padding: 13px 12px 13px 67px;
   background: #7f0000;
-  border-radius: 2.5rem 0 0 0;
+  border-radius: 3.5rem 0 0 0;
 }
 
 .play-store-cta {
@@ -78,6 +73,9 @@ body > div:first-of-type > nav > div:last-child {
   flex: 0 0 10.5rem;
   width: 10.5rem;
   height: 3rem;
+  overflow: hidden;
+  border-radius: 1.625rem;
+  background: transparent;
   color: #fff;
   text-decoration: none;
   white-space: nowrap;
@@ -85,10 +83,15 @@ body > div:first-of-type > nav > div:last-child {
 }
 
 .play-store-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 12rem;
+  height: 12rem;
+  max-width: none;
+  object-fit: fill;
+  transform: translate(-50%, -50%);
 }
 
 .play-store-cta:hover,
@@ -150,7 +153,7 @@ body > div:first-of-type > header {
   margin: 0;
   padding: 29px 13px 13px;
   background: #7f0000;
-  border-radius: 2.5rem 0 0 0;
+  border-radius: 3.5rem 0 0 0;
 }
 
 body > div:first-of-type > header h1 {
@@ -262,6 +265,123 @@ body > div:first-of-type > main > h2:nth-of-type(3) {
   margin-top: 57px;
 }
 
+.warehouse-mockup {
+  position: relative;
+  margin: 18px 0 8px;
+  overflow: hidden;
+  border: 7px solid #7f0000;
+  border-radius: 2rem;
+  background: #241313;
+  box-shadow: 0 8px 0 #8f0b0b;
+}
+
+.warehouse-mockup img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.warehouse-mockup figcaption {
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  padding: 7px 12px;
+  color: #7f0000;
+  background: #ffebee;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.device-gallery {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 24px 0 14px;
+  scroll-snap-type: x mandatory;
+}
+
+.device {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0;
+  overflow: hidden;
+  background: #241313;
+  border: 7px solid #7f0000;
+  box-shadow: 0 8px 0 #8f0b0b;
+  scroll-snap-align: center;
+}
+
+.device img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffebee;
+}
+
+.device-phone {
+  width: 154px;
+  height: 292px;
+  padding: 16px 7px 25px;
+  border-radius: 2rem;
+}
+
+.device-phone img {
+  border-radius: 1.35rem;
+}
+
+.device-tablet {
+  width: 278px;
+  height: 202px;
+  padding: 8px 22px;
+  border-radius: 1.75rem;
+}
+
+.device-tablet img {
+  border-radius: 0.85rem;
+}
+
+.device-speaker,
+.device-camera {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  background: #ffcdd2;
+}
+
+.device-speaker {
+  top: 7px;
+  left: 50%;
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.device-camera {
+  top: 50%;
+  left: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.device figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 body > div:first-of-type > footer {
   max-width: none;
   margin-top: 57px;
@@ -275,7 +395,7 @@ body > div:first-of-type > footer {
   }
 
   body > div:first-of-type > nav > div:last-child {
-    padding-left: 10px;
+    padding-left: 52px;
   }
 
   body > div:first-of-type > header > div {
@@ -285,5 +405,15 @@ body > div:first-of-type > footer {
   .play-store-cta {
     flex-basis: 10.5rem;
     width: 10.5rem;
+  }
+
+  .device-phone {
+    width: 140px;
+    height: 270px;
+  }
+
+  .device-tablet {
+    width: 250px;
+    height: 184px;
   }
 }
