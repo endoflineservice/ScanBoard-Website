@@ -53,7 +53,7 @@ body > div:first-of-type > nav > div:first-child::before {
   width: var(--nav-curve);
   height: var(--nav-curve);
   background: radial-gradient(circle at top left,
-    #fff calc(var(--nav-curve) - 0.5px), #7f0000 var(--nav-curve));
+    #fff calc(var(--nav-curve) - 0.5px), #b71c1c var(--nav-curve));
   pointer-events: none;
 }
 
@@ -78,7 +78,7 @@ body > div:first-of-type > nav > div:last-child {
   z-index: 1;
   margin-left: 0;
   padding: 13px 12px 13px 25px;
-  background: #7f0000;
+  background: #b71c1c;
   border-radius: var(--nav-curve) 0 0 0;
 }
 
@@ -169,33 +169,38 @@ body > div:first-of-type > header {
   max-width: none;
   margin: 0;
   padding: 76px 13px 13px;
-  background: #7f0000;
+  background: #b71c1c;
   border-radius: 3.5rem 0 0 0;
 }
 
 .hero-video {
   position: absolute;
-  inset: 0;
+  top: 24px;
+  right: 0;
+  left: 0;
   z-index: -2;
   width: 100%;
-  height: min(100%, 540px);
+  height: min(calc(100% - 24px), 540px);
   object-fit: cover;
   pointer-events: none;
 }
 
-/* Fade both edges to the same red as the nav and hero background. */
+/* Fade both edges to the same red as the nav and hero background. Keep the
+   ramps short: widening them buries the footage under the veil. */
 body > div:first-of-type > header::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 24px;
+  right: 0;
+  left: 0;
   z-index: -1;
-  height: min(100%, 540px);
+  height: min(calc(100% - 24px), 540px);
   background: linear-gradient(to bottom,
-    #7f0000 0%,
-    rgb(127 0 0 / 80%) 14%,
-    rgb(90 0 0 / 68%) 32%,
-    rgb(127 0 0 / 90%) 65%,
-    #7f0000 100%);
+    #b71c1c 0%,
+    rgb(110 0 0 / 74%) 4%,
+    rgb(90 0 0 / 52%) 12%,
+    rgb(90 0 0 / 52%) 82%,
+    #b71c1c 100%);
   pointer-events: none;
 }
 
@@ -212,7 +217,7 @@ body > div:first-of-type > header::before {
   cursor: pointer;
 }
 
-.hero-video-toggle:hover { background: #7f0000; }
+.hero-video-toggle:hover { background: #c62828; }
 .hero-video-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
 body > div:first-of-type > header h1 {
@@ -262,11 +267,8 @@ body > div:first-of-type > main {
   max-width: none;
   margin-top: 0;
   padding: clamp(72px, 8vw, 104px) clamp(18px, 3vw, 32px) 64px;
-  /* Use the existing section spacing to blend out the hero's bottom seam. */
-  background:
-    linear-gradient(to bottom, #7f0000, #b71c1c)
-      top / 100% clamp(72px, 8vw, 104px) no-repeat,
-    #b71c1c;
+  /* The hero is bright red now, so the blend layer would be a no-op. */
+  background: #b71c1c;
 }
 
 body > div:first-of-type > main > h2 {
@@ -274,6 +276,11 @@ body > div:first-of-type > main > h2 {
   color: #fff;
   font-size: 2rem;
 }
+
+/* Spacing is position-based, not nth-of-type: inserting a section must not
+   shift which heading gets a top margin. Do not "simplify" this back. */
+body > div:first-of-type > main > h2:first-of-type { margin-top: 0; }
+body > div:first-of-type > main > h2 ~ h2 { margin-top: clamp(80px, 10vw, 128px); }
 
 body > div:first-of-type > main > ul {
   padding: 0;
@@ -300,10 +307,6 @@ body > div:first-of-type > main > ul > li p {
   color: #3f3f46;
 }
 
-body > div:first-of-type > main > h2:nth-of-type(2) {
-  margin-top: clamp(80px, 10vw, 128px);
-}
-
 body > div:first-of-type > main > div.flex {
   gap: 24px;
   margin-top: 32px;
@@ -325,9 +328,196 @@ body > div:first-of-type > main > div.flex > div p {
   color: #29201f;
 }
 
-body > div:first-of-type > main > h2:nth-of-type(3) {
-  margin-top: clamp(80px, 10vw, 128px);
+.video-block {
+  margin-top: 32px;
 }
+
+.section-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  background: #241313;
+  box-shadow: 0 12px 28px rgb(75 0 0 / 28%);
+}
+
+/* This clip is a 9:16 phone recording. Keep the whole frame and present it as a
+   tall centred panel; cropping to 16:9 would cut most of it away. */
+.section-video-tall {
+  width: auto;
+  max-width: 100%;
+  height: clamp(320px, 68vw, 460px);
+  margin-inline: auto;
+}
+
+.video-caption {
+  max-width: 62ch;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.9rem;
+}
+
+/* A small moving package line makes the workflow feel tangible without
+   depending on an external animation library. */
+.scan-process {
+  position: relative;
+  height: 302px;
+  margin-top: 32px;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: linear-gradient(to bottom, #ffebee 0 57%, #f8bbd0 57% 100%);
+  box-shadow: 0 12px 28px rgb(75 0 0 / 16%);
+}
+
+.scan-process-belt {
+  position: absolute;
+  top: 141px;
+  right: 0;
+  left: 0;
+  height: 84px;
+  background: rgb(255 255 255 / 23%);
+  border-top: 1px solid rgb(183 28 28 / 10%);
+  border-bottom: 9px solid #e57373;
+}
+
+.scan-process-track {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  width: max-content;
+  animation: scan-process-moving 8s linear infinite;
+}
+
+.scan-process-set {
+  display: flex;
+  gap: 88px;
+  padding-right: 88px;
+}
+
+.scan-process-box {
+  position: relative;
+  display: block;
+  width: 112px;
+  height: 108px;
+  flex: 0 0 auto;
+  overflow: visible;
+  filter: drop-shadow(0 9px 5px rgb(90 0 0 / 20%));
+}
+
+.scan-process-symbols {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.scan-process-phone {
+  position: absolute;
+  top: 20px;
+  right: clamp(20px, 9vw, 100px);
+  z-index: 2;
+  width: 164px;
+  height: auto;
+  filter: drop-shadow(0 12px 11px rgb(90 0 0 / 28%));
+}
+
+.scan-process-line { animation: scan-process-line 3.8s linear infinite; }
+.scan-process-results { opacity: 0; animation: scan-process-results 3.8s linear infinite; }
+.scan-process-code { animation: scan-process-code 3.8s linear infinite; }
+
+@keyframes scan-process-moving {
+  from { transform: translateX(-200px); }
+  to { transform: translateX(-1000px); }
+}
+
+@keyframes scan-process-line {
+  0%, 8% { transform: translateY(0); opacity: 1; }
+  42% { transform: translateY(84px); opacity: 1; }
+  50%, 100% { transform: translateY(84px); opacity: 0; }
+}
+
+@keyframes scan-process-code {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes scan-process-results {
+  0%, 50% { opacity: 0; }
+  51%, 100% { opacity: 1; }
+}
+
+.contact-section {
+  margin-top: 32px;
+  color: #fff;
+}
+
+.contact-section > p {
+  max-width: 58ch;
+  color: rgb(255 255 255 / 88%);
+}
+
+.contact-form {
+  display: grid;
+  gap: 20px;
+  margin-top: 28px;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid rgb(255 255 255 / 34%);
+  border-radius: 2rem;
+  background: rgb(255 235 238 / 13%);
+  box-shadow: 0 12px 28px rgb(75 0 0 / 16%);
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 2px solid #ffcdd2;
+  border-radius: 1rem;
+  background: #fff;
+  color: #241313;
+  font: inherit;
+  font-weight: 400;
+}
+
+.contact-form input { min-height: 48px; padding: 10px 14px; }
+.contact-form textarea { min-height: 130px; padding: 12px 14px; resize: vertical; }
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 3px solid rgb(255 255 255 / 58%);
+  outline-offset: 2px;
+  border-color: #fff;
+}
+
+.contact-form button {
+  justify-self: start;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #b71c1c;
+  font: 700 0.9rem/1 "Inter", sans-serif;
+  cursor: pointer;
+}
+
+.contact-form button:hover { background: #ffcdd2; }
+.contact-form button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 
 .warehouse-mockup {
   position: relative;
@@ -474,6 +664,10 @@ body > div:first-of-type > footer {
   .play-store-cta { transition: none; }
   .play-store-cta:hover,
   .play-store-cta:focus-visible { transform: none; }
+  .scan-process-track,
+  .scan-process-line,
+  .scan-process-results,
+  .scan-process-code { animation: none; }
 }
 
 @media (max-width: 640px) {
@@ -490,6 +684,27 @@ body > div:first-of-type > footer {
     padding-inline: 20px;
   }
 
+  .hero-video {
+    top: 16px;
+    height: min(calc(100% - 16px), 540px);
+  }
+
+  #contact { font-size: 1.75rem; }
+
+  body > div:first-of-type > header::before {
+    top: 16px;
+    height: min(calc(100% - 16px), 540px);
+  }
+
+  .scan-process { height: 266px; }
+  .scan-process-belt { top: 124px; height: 74px; }
+  .scan-process-track { top: 44px; animation-name: scan-process-moving-mobile; }
+  .scan-process-phone { top: 25px; right: 12px; width: 136px; }
+  .scan-process-box { width: 94px; height: 90px; }
+  .scan-process-set { gap: 74px; padding-right: 74px; }
+
+  .contact-form-grid { grid-template-columns: 1fr; }
+
   .play-store-cta {
     flex-basis: 10.5rem;
     width: 10.5rem;
@@ -502,4 +717,9 @@ body > div:first-of-type > footer {
   .device-tablet {
     width: 230px;
   }
+}
+
+@keyframes scan-process-moving-mobile {
+  from { transform: translateX(-168px); }
+  to { transform: translateX(-840px); }
 }

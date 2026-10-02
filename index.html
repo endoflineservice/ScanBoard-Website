@@ -17,11 +17,12 @@
       <img src="assets/icon.png" alt="ScanBoard logo" class="w-10 h-10 rounded-2xl" />
       <span class="font-anton select-none tracking-wide text-white">SCANBOARD</span>
     </div>
-    <div class="flex items-center gap-4 flex-1 justify-end bg-[#7f0000] text-white p-3.5 rounded-t-[3rem]">
+    <div class="flex items-center gap-4 flex-1 justify-end bg-[#b71c1c] text-white p-3.5 rounded-t-[3rem]">
       <ul class="hidden md:flex items-center gap-6 py-2.5">
         <li><a href="#features" class="hover:text-[#ffcdd2] transition-colors">Features</a></li>
         <li><a href="#workflow" class="hover:text-[#ffcdd2] transition-colors">How it works</a></li>
         <li><a href="#screens" class="hover:text-[#ffcdd2] transition-colors">Screens</a></li>
+        <li><a href="#contact" class="hover:text-[#ffcdd2] transition-colors">Contact</a></li>
       </ul>
       <a href="https://play.google.com/store/apps/details?id=corryholt.scanboard" target="_blank" rel="noopener" class="play-store-cta" aria-label="Get it on Google Play">
         <img src="assets/google-play-badge.png" alt="Get it on Google Play" class="play-store-badge" />
@@ -29,9 +30,9 @@
     </div>
   </nav>
 
-  <header class="max-w-5xl mx-auto bg-[#7f0000] text-white px-3.5 pb-3.5 pt-10 rounded-tl-[3rem] rounded-b-[3rem] overflow-hidden">
-    <video class="hero-video" id="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-warehouse-poster.jpg" aria-hidden="true" tabindex="-1">
-      <source src="assets/hero-warehouse.mp4" type="video/mp4" />
+  <header class="max-w-5xl mx-auto bg-[#b71c1c] text-white px-3.5 pb-3.5 pt-10 rounded-tl-[3rem] rounded-b-[3rem] overflow-hidden">
+    <video class="hero-video" id="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-main-poster.jpg" aria-hidden="true" tabindex="-1">
+      <source src="assets/hero-main.mp4" type="video/mp4" />
     </video>
     <button class="hero-video-toggle" type="button" aria-controls="hero-video" hidden>Play background</button>
     <h1 class="font-anton text-5xl md:text-6xl text-center">SCAN. PASTE. SHIP.</h1>
@@ -65,6 +66,50 @@
       <div class="flex-1 bg-[#ffebee] rounded-[2rem] p-6"><span class="font-anton text-3xl text-[#b71c1c]">01</span><h3 class="font-anton text-lg mt-2">RECEIVING</h3><p class="text-sm mt-1">Scan inbound barcodes into the inventory app. Every ID lands in the right field, first try.</p></div>
       <div class="flex-1 bg-[#ffebee] rounded-[2rem] p-6"><span class="font-anton text-3xl text-[#b71c1c]">02</span><h3 class="font-anton text-lg mt-2">PICKING</h3><p class="text-sm mt-1">Confirm bin locations and SKUs without putting down the scanner flow or slowing your pick rate.</p></div>
       <div class="flex-1 bg-[#ffebee] rounded-[2rem] p-6"><span class="font-anton text-3xl text-[#b71c1c]">03</span><h3 class="font-anton text-lg mt-2">SHIPPING</h3><p class="text-sm mt-1">Drop tracking numbers into carrier apps and labels in seconds — no retyping, no typos.</p></div>
+    </div>
+    <div class="scan-process" aria-label="An animated package scanning illustration">
+      <svg class="scan-process-symbols" aria-hidden="true">
+        <symbol id="scan-process-carton" viewBox="17.167 17.5 65.333 62.5">
+          <g>
+            <path fill="#ef5350" d="M19.985,32.486L49.986,17.5l30,14.986l-0.016,1.981L49.986,49.47L19.997,34.491L19.985,32.486z"/>
+            <path fill="#d32f2f" d="M19.986,32.486l29.977,14.999l30.023-14.999v30l-30.109,15l-29.891-15V32.486z"/>
+            <path fill="#b71c1c" d="M49.986,77.432V47.473l-0.023,0.012L19.986,32.486v30l29.891,15L49.986,77.432z"/>
+            <path fill="#ff8a80" d="M61.99,41.477v8.792l2.678,0.216l1.707-2.033l1.607,0.253V38.483L61.99,41.477z"/>
+            <path fill="#ffcdd2" d="M31.967,26.501l30.51,15.279l5.502-3.26l-30-15.023L31.967,26.501z"/>
+            <path fill="#F2F2F2" d="M43.979,60.607l-9.984-5.01c-0.551-0.277-0.998,0.061-0.998,0.752v6.26c0,0.693,0.447,1.479,0.998,1.754l9.984,5.012c0.551,0.275,0.998-0.063,0.998-0.754v-6.26C44.977,61.67,44.529,60.885,43.979,60.607z M41.482,65.617l-5.99-3.008c-0.275-0.137-0.499-0.529-0.499-0.875s0.224-0.514,0.499-0.377l5.99,3.006c0.275,0.141,0.499,0.531,0.499,0.877C41.981,65.588,41.758,65.756,41.482,65.617z M42.48,63.613l-6.988-3.508c-0.275-0.139-0.499-0.531-0.499-0.877s0.224-0.514,0.499-0.375l6.988,3.508c0.276,0.139,0.499,0.531,0.499,0.875C42.979,63.584,42.757,63.752,42.48,63.613z"/>
+            <g><polygon fill="#FFFFFF" points="67.979,66.508 53.223,72.129 52.67,55.092 67.426,49.47"/><path d="M67.787,66.313l-1.582,0.602l-0.033,0.014l-1.615,0.615l-1.614,0.615l-0.061-1.828l1.615-0.615l1.616-0.615l0.034-0.014l-0.06-1.828l-0.059-1.826l1.614-0.615l0.059,1.826l0.061,1.828l0.059,1.828L67.787,66.313z M64.292,58.354l1.582-0.604l0.034-0.012l1.581-0.604l0.06,1.828l-1.581,0.604l-0.035,0.012l-1.581,0.604L64.292,58.354z M62.797,62.662l1.615-0.615l0.059,1.828l-1.616,0.615L62.797,62.662z M62.405,51.635l4.88-1.86l0.179,5.52l-4.88,1.859L62.405,51.635z M63.621,55.527l2.727-1.039l-0.101-3.084l-2.727,1.039L63.621,55.527z M64.394,53.072l1.044-0.396l0.039,1.18l-1.045,0.398L64.394,53.072zM62.703,60.811l-1.616,0.615l0.12,3.693l0.059,1.828l0.06,1.826l-1.616,0.617l-0.06-1.83l-0.06-1.826l-0.118-3.693l-1.616,0.615l-0.06-1.826l1.616-0.617l-0.18-5.52l-0.06-1.828l1.617-0.615l0.059,1.828l0.179,5.52l1.616-0.615L62.703,60.811L62.703,60.811zM52.677,55.34l4.881-1.859L57.736,59l-4.88,1.859L52.677,55.34z M53.895,59.232l2.726-1.039l-0.099-3.082l-2.728,1.037L53.895,59.232z M54.666,56.779l1.043-0.396l0.039,1.18l-1.044,0.396L54.666,56.779z M56.147,61.457l0.06,1.828L54.59,63.9l-1.614,0.617l-0.06-1.83l1.615-0.613L56.147,61.457z M58.094,70.006l-4.88,1.859l-0.18-5.52l4.88-1.861L58.094,70.006zM56.878,66.113l-2.727,1.037l0.1,3.084l2.727-1.039L56.878,66.113z M56.104,68.566l-1.043,0.398l-0.039-1.182l1.044-0.398L56.104,68.566z"/></g>
+          </g>
+        </symbol>
+      </svg>
+      <div class="scan-process-track" aria-hidden="true">
+        <div class="scan-process-set">
+          <svg class="scan-process-box" viewBox="17.167 17.5 65.333 62.5"><use href="#scan-process-carton"/></svg><svg class="scan-process-box" viewBox="17.167 17.5 65.333 62.5"><use href="#scan-process-carton"/></svg><svg class="scan-process-box" viewBox="17.167 17.5 65.333 62.5"><use href="#scan-process-carton"/></svg><svg class="scan-process-box" viewBox="17.167 17.5 65.333 62.5"><use href="#scan-process-carton"/></svg>
+        </div>
+        <div class="scan-process-set" aria-hidden="true">
+          <svg class="scan-process-box" viewBox="17.167 17.5 65.333 62.5"><use href="#scan-process-carton"/></svg><svg class="scan-process-box" viewBox="17.167 17.5 65.333 62.5"><use href="#scan-process-carton"/></svg><svg class="scan-process-box" viewBox="17.167 17.5 65.333 62.5"><use href="#scan-process-carton"/></svg><svg class="scan-process-box" viewBox="17.167 17.5 65.333 62.5"><use href="#scan-process-carton"/></svg>
+        </div>
+      </div>
+      <div class="scan-process-belt" aria-hidden="true"></div>
+      <svg class="scan-process-phone" viewBox="0 0 178 276" role="img" aria-label="Phone scanning a QR code">
+        <rect x="24" y="21" width="141" height="240" rx="16" fill="#8f0b0b"/>
+        <rect x="19" y="16" width="141" height="240" rx="16" fill="#b71c1c"/>
+        <rect x="32" y="52" width="116" height="168" fill="#fff"/>
+        <rect x="70" y="30" width="39" height="8" rx="4" fill="#fff"/>
+        <circle cx="89" cy="239" r="8" fill="#fff"/>
+        <g class="scan-process-code" fill="#241313">
+          <path d="M42 87h34v34H42zm8 8v18h18V95zm42-8h34v34H92zm8 8v18h18V95zM42 137h34v34H42zm8 8v18h18v-18zM91 137h9v9h-9zm18 0h17v9h-17zm-18 17h9v17h-9zm18 0h17v17h-17zm-9 9h9v9h-9z"/>
+        </g>
+        <g class="scan-process-results" fill="#241313">
+          <rect x="42" y="82" width="49" height="14"/><rect x="42" y="108" width="94" height="7"/><rect x="42" y="133" width="94" height="7"/><rect x="42" y="158" width="94" height="7"/><rect x="42" y="184" width="94" height="7"/>
+        </g>
+        <path class="scan-process-line" d="M36 87h106" fill="none" stroke="#e53935" stroke-width="5"/>
+      </svg>
+    </div>
+
+    <h2 id="packages" class="font-anton text-4xl text-white mt-16 scroll-mt-24">SCAN THE BOX. KEEP PACKING.</h2>
+    <div class="video-block">
+      <video class="section-video section-video-tall" data-src="assets/scan-packages.mp4" poster="assets/scan-packages-poster.jpg" muted loop playsinline preload="none" width="720" height="1280" aria-label="ScanBoard scanning a package label"></video>
+      <p class="video-caption">Read a carton label the second it turns up. No typing, no re-scanning the same box — keep the tape gun moving.</p>
     </div>
 
     <h2 id="screens" class="font-anton text-4xl text-white mt-16 scroll-mt-24">SCREENSHOTS</h2>
@@ -109,10 +154,26 @@
         <figcaption>Clean scan text</figcaption>
       </figure>
     </div>
+
+    <h2 id="contact" class="font-anton text-4xl text-white scroll-mt-24">LET'S TALK SCANNING</h2>
+    <section class="contact-section" aria-labelledby="contact">
+      <p>Tell us how your team scans today and where the process slows down. We’ll get back to you by email.</p>
+      <!-- Hosted form hook: replace data-mailto-form with action="https://formspree.io/f/YOUR_FORM_ID" method="POST" to send submissions through Formspree. -->
+      <form class="contact-form" data-mailto-form>
+        <div class="contact-form-grid">
+          <label>Name <span aria-hidden="true">*</span><input name="name" type="text" autocomplete="name" required /></label>
+          <label>Company <input name="company" type="text" autocomplete="organization" /></label>
+          <label>Email <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required /></label>
+          <label>Phone <input name="phone" type="tel" autocomplete="tel" /></label>
+        </div>
+        <label>Message <span aria-hidden="true">*</span><textarea name="message" rows="5" required></textarea></label>
+        <button type="submit">EMAIL SCANBOARD</button>
+      </form>
+    </section>
   </main>
 
-  <footer class="max-w-5xl mx-auto bg-[#7f0000] text-white px-4 pb-4 mt-16 pt-8 rounded-t-[3rem]">
-    <p class="text-center text-sm text-white/60">© 2026 Bright Byte Labs · <a class="underline" href="https://play.google.com/store/apps/details?id=corryholt.scanboard">Google Play</a></p>
+  <footer class="max-w-5xl mx-auto bg-[#b71c1c] text-white px-4 pb-4 mt-16 pt-8 rounded-t-[3rem]">
+    <p class="text-center text-sm text-white/60">© 2026 Bright Byte Labs · <a class="underline" href="https://play.google.com/store/apps/details?id=corryholt.scanboard">Google Play</a> · <a class="underline" href="#contact">Contact</a></p>
   </footer>
   </div>
 

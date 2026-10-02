@@ -8,8 +8,11 @@
     ["main > h2", "slide"],
     ["main > ul > li", "up"],
     ["main > div.flex > div", "up"],
+    [".video-block", "up"],
+    [".scan-process", "up"],
     [".warehouse-mockup", "pop"],
     [".device-gallery > figure", "up"],
+    [".contact-section", "up"],
     ["footer > p", "up"],
   ];
   const targets = [];
@@ -48,6 +51,36 @@
   document.addEventListener("focusin", (event) => {
     const target = event.target.closest(".reveal-pending");
     if (target) reveal(target);
+  });
+})();
+
+// Static-site contact delivery: turn validated form values into an email draft.
+// See the single hosted-endpoint hook beside the form if a server-backed send is needed.
+(() => {
+  const form = document.querySelector("[data-mailto-form]");
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const fields = new FormData(form);
+    const name = fields.get("name").trim();
+    const company = fields.get("company").trim();
+    const email = fields.get("email").trim();
+    const phone = fields.get("phone").trim();
+    const message = fields.get("message").trim();
+    const lines = [
+      `Name: ${name}`,
+      `Company: ${company || "Not provided"}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "Not provided"}`,
+      "",
+      "Message:",
+      message,
+    ];
+    const subject = `ScanBoard website inquiry from ${name}`;
+    window.location.href = `mailto:corryrholt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
   });
 })();
 
@@ -92,4 +125,51 @@
     visibility.observe(video);
   }
   syncPlayback();
+})();
+
+// In-body adverts: the source is attached only as a clip nears the viewport, and
+// never at all for reduced-motion visitors, who just keep the poster frame.
+(() => {
+  const videos = Array.from(document.querySelectorAll(".section-video"));
+  if (!videos.length) return;
+  const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const supported = "IntersectionObserver" in window;
+
+  videos.forEach((video) => {
+    video.muted = true;
+    let inView = false;
+
+    const attach = () => {
+      if (video.dataset.attached || preference.matches) return;
+      video.dataset.attached = "true";
+      video.src = video.dataset.src;
+    };
+
+    const sync = () => {
+      if (!video.dataset.attached) return;
+      if (preference.matches || !inView || document.hidden) {
+        video.pause();
+      } else {
+        video.play().catch(() => {});
+      }
+    };
+
+    if (supported) {
+      new IntersectionObserver(([entry]) => {
+        inView = entry.isIntersecting;
+        if (inView) attach();
+        sync();
+      }, { rootMargin: "200px 0px" }).observe(video);
+    } else {
+      attach();
+      inView = true;
+    }
+
+    preference.addEventListener("change", () => {
+      if (!preference.matches && inView) attach();
+      sync();
+    });
+    document.addEventListener("visibilitychange", sync);
+    sync();
+  });
 })();
