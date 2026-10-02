@@ -63,14 +63,14 @@ body > div:first-of-type > nav > div:first-child > * {
 }
 
 body > div:first-of-type > nav > div:first-child img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 0.75rem;
 }
 
 body > div:first-of-type > nav > div:first-child span {
   color: #b71c1c;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
 }
 
 body > div:first-of-type > nav > div:last-child {
@@ -365,20 +365,38 @@ body > div:first-of-type > main > div.flex > div p {
   margin-top: 32px;
   overflow: hidden;
   border-radius: 2rem;
-  background: linear-gradient(to bottom, #ffebee 0 57%, #f8bbd0 57% 100%);
+  background: #ffebee;
   box-shadow: 0 12px 28px rgb(75 0 0 / 16%);
 }
 
 .scan-process-belt {
   position: absolute;
-  top: 141px;
+  top: 104px;
   right: 0;
   left: 0;
-  height: 84px;
-  background: rgb(255 255 255 / 23%);
-  border-top: 1px solid rgb(183 28 28 / 10%);
-  border-bottom: 9px solid #e57373;
+  height: 96px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 13%) 0 2px, transparent 2px 40px),
+    linear-gradient(to bottom, #747b80, #3e454a 52%, #5b6267);
+  border-top: 8px solid #b6bec3;
+  border-bottom: 10px solid #30363a;
+  box-shadow: inset 0 7px 10px rgb(0 0 0 / 28%), inset 0 -5px 7px rgb(255 255 255 / 15%);
 }
+
+.scan-process-belt::before,
+.scan-process-belt::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 5px;
+  background: rgb(230 236 238 / 55%);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 38%);
+}
+
+.scan-process-belt::before { top: 13px; }
+.scan-process-belt::after { bottom: 13px; }
 
 .scan-process-track {
   position: absolute;
@@ -406,6 +424,20 @@ body > div:first-of-type > main > div.flex > div p {
   filter: drop-shadow(0 9px 5px rgb(90 0 0 / 20%));
 }
 
+.scan-process-pallet {
+  display: block;
+  width: 148px;
+  height: 114px;
+  flex: 0 0 auto;
+  overflow: visible;
+  filter: drop-shadow(0 9px 5px rgb(90 0 0 / 20%));
+}
+
+/* Let cartons settle into the moving belt instead of riding its upper edge. */
+.scan-process-set > .scan-process-box:nth-child(1) { transform: translateY(36px); }
+.scan-process-set > .scan-process-box:nth-child(2) { transform: translateY(24px); }
+.scan-process-set > .scan-process-box:nth-child(3) { transform: translateY(42px); }
+
 .scan-process-symbols {
   position: absolute;
   width: 0;
@@ -428,8 +460,8 @@ body > div:first-of-type > main > div.flex > div p {
 .scan-process-code { animation: scan-process-code 3.8s linear infinite; }
 
 @keyframes scan-process-moving {
-  from { transform: translateX(-200px); }
-  to { transform: translateX(-1000px); }
+  from { transform: translateX(-209px); }
+  to { transform: translateX(-1045px); }
 }
 
 @keyframes scan-process-line {
@@ -671,6 +703,11 @@ body > div:first-of-type > footer {
 }
 
 @media (max-width: 640px) {
+  body > div:first-of-type > nav > div:first-child img {
+    width: 36px;
+    height: 36px;
+  }
+
   body > div:first-of-type > nav > div:first-child {
     flex-basis: 132px;
     padding-inline: 10px;
@@ -697,10 +734,14 @@ body > div:first-of-type > footer {
   }
 
   .scan-process { height: 266px; }
-  .scan-process-belt { top: 124px; height: 74px; }
+  .scan-process-belt { top: 88px; height: 86px; }
   .scan-process-track { top: 44px; animation-name: scan-process-moving-mobile; }
   .scan-process-phone { top: 25px; right: 12px; width: 136px; }
   .scan-process-box { width: 94px; height: 90px; }
+  .scan-process-pallet { width: 128px; height: 99px; }
+  .scan-process-set > .scan-process-box:nth-child(1) { transform: translateY(30px); }
+  .scan-process-set > .scan-process-box:nth-child(2) { transform: translateY(20px); }
+  .scan-process-set > .scan-process-box:nth-child(3) { transform: translateY(36px); }
   .scan-process-set { gap: 74px; padding-right: 74px; }
 
   .contact-form-grid { grid-template-columns: 1fr; }
@@ -720,6 +761,6 @@ body > div:first-of-type > footer {
 }
 
 @keyframes scan-process-moving-mobile {
-  from { transform: translateX(-168px); }
-  to { transform: translateX(-840px); }
+  from { transform: translateX(-176px); }
+  to { transform: translateX(-882px); }
 }
