@@ -4,3 +4,10 @@ body { font-family: "Inter", sans-serif; }
 .font-anton { font-family: "Anton", sans-serif; }
 
 img { -webkit-user-drag: none; user-select: none; }
+
+.concave-tl { position: relative; }
+.concave-tl::before {
+  content: ""; position: absolute; top: 0; left: 0;
+  width: 3rem; height: 3rem; background: white;
+  border-bottom-right-radius: 3rem;
+}
