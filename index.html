@@ -4,60 +4,81 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ScanBoard — QR & Barcode Keyboard</title>
-  <meta name="description" content="ScanBoard is a keyboard with a built-in QR/barcode scanner. Tap scan, capture a code, and paste text instantly into any app." />
+  <meta name="description" content="ScanBoard is a keyboard with a built-in QR/barcode scanner. Built for warehouse workflows." />
   <link rel="icon" type="image/png" href="assets/icon.png" />
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="hero">
-    <nav class="nav">
-      <span class="nav-brand"><img src="assets/icon.png" alt="ScanBoard icon" class="nav-icon" /> ScanBoard</span>
-      <a class="cta cta-small" href="https://play.google.com/store/apps/details?id=corryholt.scanboard" target="_blank" rel="noopener">Get it on Google Play</a>
-    </nav>
-    <div class="hero-content">
-      <img src="assets/icon.png" alt="ScanBoard app icon" class="app-icon" />
-      <div>
-        <h1>ScanBoard QR Barcode Keyboard</h1>
-        <p class="tagline">A keyboard with a built-in QR/barcode scanner. Tap scan, capture a code, and paste text instantly into any app.</p>
-        <a class="cta" href="https://play.google.com/store/apps/details?id=corryholt.scanboard" target="_blank" rel="noopener">Download on Google Play</a>
-        <p class="meta">100+ downloads · Everyone · Tools · by Bright Byte Labs</p>
+<body class="min-h-dvh text-base font-normal text-[#1b1b1f] bg-[#b71c1c] px-3.5 pt-3.5">
+
+  <nav class="flex items-center justify-between max-w-5xl mx-auto relative z-10 overflow-hidden">
+    <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-br-4xl relative z-10 max-w-64">
+      <img src="assets/icon.png" alt="ScanBoard logo" class="w-10 h-10 rounded-xl" />
+      <span class="font-anton select-none tracking-wide">SCANBOARD</span>
+    </div>
+    <div class="flex items-center gap-4 flex-1 justify-end bg-[#7f0000] text-white p-3.5 rounded-t-4xl">
+      <ul class="hidden md:flex items-center gap-6 py-2.5">
+        <li><a href="#features" class="hover:text-[#ffcdd2] transition-colors">Features</a></li>
+        <li><a href="#workflow" class="hover:text-[#ffcdd2] transition-colors">How it works</a></li>
+        <li><a href="#screens" class="hover:text-[#ffcdd2] transition-colors">Screens</a></li>
+      </ul>
+      <a href="https://play.google.com/store/apps/details?id=corryholt.scanboard" target="_blank" rel="noopener" class="flex items-center gap-2 bg-[#e53935] rounded-full py-1.5 pl-1.5 pr-4 text-white whitespace-nowrap hover:bg-[#c62828] transition-colors">
+        <span class="rounded-full p-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" /></svg>
+        </span>
+        <span>Get the App</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="max-w-5xl mx-auto bg-[#7f0000] text-white px-3.5 pb-3.5 pt-10 rounded-tl-4xl rounded-b-4xl overflow-hidden">
+    <h1 class="font-anton text-5xl md:text-6xl text-center">SCAN. PASTE. SHIP.</h1>
+    <p class="text-center mt-4 max-w-xl mx-auto">The keyboard with a built-in QR/barcode scanner — built for the warehouse floor. Receiving, picking, packing, cycle counts: scan straight into any text field.</p>
+    <div class="mt-8 bg-[#b71c1c] rounded-4xl px-4 sm:px-8 pt-8 pb-6">
+      <div class="flex flex-col sm:flex-row gap-6 items-center">
+        <img src="assets/icon.png" alt="" class="size-28 rounded-3xl shadow-xl" />
+        <div>
+          <h2 class="font-anton text-2xl text-[#ffcdd2]">WAREHOUSE-READY</h2>
+          <p class="text-sm mt-1 max-w-sm">No app switching. No clipboards. No retyping SKUs, lot codes, or tracking numbers.</p>
+        </div>
+        <div class="bg-[#ffebee] rounded-2xl p-4 text-[#7f0000] sm:max-w-[160px] sm:ml-auto">
+          <span class="font-anton text-4xl">0</span>
+          <p class="text-sm">apps to juggle between scans</p>
+        </div>
       </div>
     </div>
   </header>
 
-  <section class="feature-graphic">
-    <img src="assets/feature.png" alt="ScanBoard feature graphic" />
-  </section>
+  <main class="max-w-5xl mx-auto mt-14 px-1">
+    <h2 id="features" class="font-anton text-4xl text-white scroll-mt-24">WHY CREWS LOVE IT</h2>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mt-6">
+      <li class="bg-white rounded-3xl p-5"><h3 class="font-anton text-lg">Instant paste</h3><p class="text-sm mt-1 text-gray-600">Scan codes straight into WMS forms, invoices, and chat — wherever the keyboard works.</p></li>
+      <li class="bg-white rounded-3xl p-5"><h3 class="font-anton text-lg">Scan history</h3><p class="text-sm mt-1 text-gray-600">Reuse recent scans without re-scanning. Perfect for labels you type again.</p></li>
+      <li class="bg-white rounded-3xl p-5"><h3 class="font-anton text-lg">Private by design</h3><p class="text-sm mt-1 text-gray-600">Camera is used for scanning only. No account required. No data shared.</p></li>
+      <li class="bg-white rounded-3xl p-5"><h3 class="font-anton text-lg">Pro tools</h3><p class="text-sm mt-1 text-gray-600">Unlock profiles, formatting, and regex for advanced warehouse tooling.</p></li>
+    </ul>
 
-  <section class="features">
-    <h2>Why ScanBoard</h2>
-    <div class="grid">
-      <div class="card"><h3>No app switching</h3><p>Scan from the keyboard itself and get text instantly, right where you're typing.</p></div>
-      <div class="card"><h3>Fast scan-to-paste</h3><p>Built for rapid workflows — inventory, shipping, forms, and everyday scanning.</p></div>
-      <div class="card"><h3>Works anywhere</h3><p>Works wherever your keyboard works, with scan history for quick reuse.</p></div>
-      <div class="card"><h3>Privacy-focused</h3><p>Camera used for scanning only. No account required. No data shared with third parties.</p></div>
+    <h2 id="workflow" class="font-anton text-4xl text-white mt-16 scroll-mt-24">HOW IT RUNS A SHIFT</h2>
+    <div class="flex flex-col md:flex-row gap-5 mt-6">
+      <div class="flex-1 bg-[#ffebee] rounded-3xl p-6"><span class="font-anton text-3xl text-[#b71c1c]">01</span><h3 class="font-anton text-lg mt-2">RECEIVING</h3><p class="text-sm mt-1">Scan inbound barcodes into the inventory app. Every ID lands in the right field, first try.</p></div>
+      <div class="flex-1 bg-[#ffebee] rounded-3xl p-6"><span class="font-anton text-3xl text-[#b71c1c]">02</span><h3 class="font-anton text-lg mt-2">PICKING</h3><p class="text-sm mt-1">Confirm bin locations and SKUs without putting down the scanner flow or slowing your pick rate.</p></div>
+      <div class="flex-1 bg-[#ffebee] rounded-3xl p-6"><span class="font-anton text-3xl text-[#b71c1c]">03</span><h3 class="font-anton text-lg mt-2">SHIPPING</h3><p class="text-sm mt-1">Drop tracking numbers into carrier apps and labels in seconds — no retyping, no typos.</p></div>
     </div>
-  </section>
 
-  <section class="screenshots">
-    <h2>Screenshots</h2>
-    <div class="shot-row">
-      <img src="assets/shot1.png" alt="Set up in seconds" />
-      <img src="assets/shot2.png" alt="Keyboard plus scanner" />
-      <img src="assets/shot3.png" alt="Scan codes anywhere" />
-      <img src="assets/shot4.png" alt="Tune the keyboard" />
-      <img src="assets/shot5.png" alt="Clean scan text" />
+    <h2 id="screens" class="font-anton text-4xl text-white mt-16 scroll-mt-24">SCREENSHOTS</h2>
+    <div class="flex gap-4 overflow-x-auto py-6 snap-x">
+      <img src="assets/shot1.png" alt="ScanBoard setup" class="h-96 rounded-3xl snap-center border-4 border-white" />
+      <img src="assets/shot2.png" alt="ScanBoard keyboard" class="h-96 rounded-3xl snap-center border-4 border-white" />
+      <img src="assets/shot3.png" alt="Scan anywhere" class="h-96 rounded-3xl snap-center border-4 border-white" />
+      <img src="assets/shot4.png" alt="Tune keyboard" class="h-96 rounded-3xl snap-center border-4 border-white" />
+      <img src="assets/shot5.png" alt="Clean scan text" class="h-96 rounded-3xl snap-center border-4 border-white" />
     </div>
-  </section>
+  </main>
 
-  <section class="download">
-    <h2>Get ScanBoard</h2>
-    <p>Free on Google Play. Pro unlocks advanced tools like profiles, formatting, regex, and more.</p>
-    <a class="cta" href="https://play.google.com/store/apps/details?id=corryholt.scanboard" target="_blank" rel="noopener">View on Google Play</a>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Bright Byte Labs · Support: corryrholt@gmail.com</p>
+  <footer class="max-w-5xl mx-auto bg-[#7f0000] text-white px-4 pb-4 mt-16 pt-8 rounded-t-4xl">
+    <p class="text-center text-sm text-white/60">© 2026 Bright Byte Labs · <a class="underline" href="https://play.google.com/store/apps/details?id=corryholt.scanboard">Google Play</a></p>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
