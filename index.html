@@ -7,7 +7,7 @@
   <meta name="description" content="ScanBoard is a keyboard with a built-in QR/barcode scanner. Built for warehouse workflows." />
   <link rel="icon" type="image/png" href="assets/icon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css?v=feature-shapes-v6" />
+  <link rel="stylesheet" href="styles.css?v=feature-shapes-v10" />
 </head>
 <body class="min-h-dvh text-base font-normal text-[#1b1b1f] bg-white p-3.5">
 
@@ -35,7 +35,7 @@
         <li><a href="#features" class="hover:text-[#ffcdd2] transition-colors">Features</a></li>
         <li><a href="#workflow" class="hover:text-[#ffcdd2] transition-colors">How it works</a></li>
         <li><a href="#screens" class="hover:text-[#ffcdd2] transition-colors">Screens</a></li>
-        <li><a href="#contact" class="hover:text-[#ffcdd2] transition-colors">Contact</a></li>
+        <li><a href="#contact" class="hover:text-[#ffcdd2] transition-colors">Contact Sales</a></li>
       </ul>
       <a href="https://play.google.com/store/apps/details?id=corryholt.scanboard" target="_blank" rel="noopener" class="play-store-cta" aria-label="Get it on Google Play">
         <img src="assets/google-play-badge.png" alt="Get it on Google Play" class="play-store-badge" />
@@ -49,7 +49,7 @@
     </video>
     <button class="hero-video-toggle" type="button" aria-controls="hero-video" hidden>Play background</button>
     <h1 class="font-anton text-5xl md:text-6xl text-center">SCAN. PASTE. SHIP.</h1>
-    <p class="text-center mt-4 max-w-xl mx-auto">The keyboard with a built-in QR/barcode scanner — built for the warehouse floor. Receiving, picking, packing, cycle counts: scan straight into any text field.</p>
+    <p class="text-center mt-4 max-w-xl mx-auto">The keyboard with a built-in QR/barcode scanner — built for the warehouse floor. Receiving, picking, packing, cycle counts: scan straight into any text field, in whatever app you're already working in. A built-in zoom slider reads codes from across the aisle.</p>
     <div class="mt-8 bg-[#b71c1c] rounded-[2.5rem] px-4 sm:px-8 pt-8 pb-6">
       <div class="flex flex-col sm:flex-row gap-6 items-center">
         <img src="assets/icon.png" alt="" class="size-28 rounded-[2rem] shadow-xl" />
@@ -68,11 +68,124 @@
   <main class="max-w-5xl mx-auto mt-14 px-1">
     <h2 id="features" class="font-anton text-4xl text-white scroll-mt-24">WHY CREWS LOVE IT</h2>
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mt-6">
-      <li class="feature-card feature-card--paste bg-white p-5"><h3 class="font-anton text-lg">Instant paste</h3><p class="text-sm mt-1 text-gray-600">Scan codes straight into WMS forms, invoices, and chat — wherever the keyboard works.</p></li>
+      <li class="feature-card feature-card--paste bg-white p-5"><h3 class="font-anton text-lg">Instant paste</h3><p class="text-sm mt-1 text-gray-600">The scan lands in the field you're already typing in. Your WMS, your browser tab, your carrier portal — you never leave the app.</p></li>
       <li class="feature-card feature-card--history bg-white p-5"><h3 class="font-anton text-lg">Scan history</h3><p class="text-sm mt-1 text-gray-600">Reuse recent scans without re-scanning. Perfect for labels you type again.</p></li>
       <li class="feature-card feature-card--private bg-white p-5"><h3 class="font-anton text-lg">Private by design</h3><p class="text-sm mt-1 text-gray-600">Camera is used for scanning only. No account required. No data shared.</p></li>
       <li class="feature-card feature-card--pro bg-white p-5"><h3 class="font-anton text-lg">Pro tools</h3><p class="text-sm mt-1 text-gray-600">Unlock profiles, formatting, and regex for advanced warehouse tooling.</p></li>
+      <li class="feature-card feature-card--brand bg-white p-5 sm:col-span-2 md:col-span-4">
+        <div class="brand-strip">
+          <div class="brand-logos">
+            <span class="brand-tile"><img src="assets/icon.png" alt="" class="brand-icon" /><span class="brand-tile-label">ScanBoard</span></span>
+            <span class="brand-arrow" aria-hidden="true"></span>
+            <span class="brand-tile is-brand">
+              <img src="assets/brand-customer-logo.jpg" alt="" class="brand-customer-logo" />
+
+  <!-- Reusable code glyphs for the app-window and zoom figures. `currentColor`
+       makes them adopt whatever text colour the figure sets. -->
+  <svg class="g-symbols" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="g-code-128" viewBox="0 0 100 44">
+        <g fill="currentColor">
+          <rect x="0" y="0" width="4" height="44"/><rect x="6" y="0" width="2" height="44"/><rect x="10" y="0" width="6" height="44"/><rect x="19" y="0" width="2" height="44"/><rect x="23" y="0" width="4" height="44"/><rect x="30" y="0" width="2" height="44"/><rect x="34" y="0" width="8" height="44"/><rect x="45" y="0" width="2" height="44"/><rect x="49" y="0" width="4" height="44"/><rect x="56" y="0" width="6" height="44"/><rect x="65" y="0" width="2" height="44"/><rect x="69" y="0" width="4" height="44"/><rect x="76" y="0" width="2" height="44"/><rect x="80" y="0" width="8" height="44"/><rect x="91" y="0" width="4" height="44"/><rect x="97" y="0" width="3" height="44"/>
+        </g>
+      </symbol>
+      <symbol id="g-code-qr" viewBox="0 0 44 44">
+        <g fill="currentColor">
+          <path d="M0 0h16v16H0zm3 3v10h10V3zM28 0h16v16H28zm3 3v10h10V3zM0 28h16v16H0zm3 3v10h10V31z"/>
+          <path d="M20 0h4v4h-4zM20 8h4v4h-4zM24 4h4v4h-4zM20 16h4v4h-4zM28 20h4v4h-4zM36 20h4v4h-4zM20 28h4v4h-4zM28 28h4v4h-4zM36 28h4v4h-4zM20 36h4v4h-4zM28 36h4v4h-4zM36 36h8v4h-8zM40 24h4v4h-4z"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+              <span class="brand-tile-label">Your logo</span>
+            </span>
+          </div>
+          <div class="brand-copy">
+            <h3 class="font-anton text-lg">Ship it under your own brand</h3>
+            <p class="text-sm mt-1 text-gray-600">Put your company logo, name, and colors on the app and the keyboard it types from. Your crews get a scanner that looks like equipment you own — not a third party's app on a phone they have to keep next to the real one. White-label for resellers and 3PLs that reship under their own name.</p>
+          </div>
+        </div>
+      </li>
     </ul>
+
+    <h2 id="stay" class="font-anton text-4xl text-white scroll-mt-24">NEVER LEAVE YOUR APP</h2>
+    <div class="split-section mt-6">
+      <div class="split-copy">
+        <p class="split-lede">ScanBoard is a keyboard first. It doesn't open an app, and it never takes over your screen. It types.</p>
+        <p>Point it at a label and the code lands in the field your cursor is already sitting in — your WMS, browser-based inventory, carrier portal, shipping manifest, email, chat, spreadsheet, or a remote desktop session on the server. You keep working the screen you were already on, and nothing gets copied or pasted on the way in.</p>
+        <ul class="tick-list">
+          <li>Any text field, any app — desktop, web, or a bare terminal session. No WMS integration, no API, no plugin.</li>
+          <li>No app switching, no clipboard, no retyping SKUs, lot codes, or tracking numbers.</li>
+          <li>Scan history holds your recent codes, so a mis-drop never means walking the aisle again.</li>
+        </ul>
+      </div>
+      <figure class="app-window">
+        <div class="app-window-bar"><span class="app-window-dot" aria-hidden="true"></span><span class="app-window-dot" aria-hidden="true"></span><span class="app-window-dot" aria-hidden="true"></span><p class="app-window-title">Inventory · Receiving</p></div>
+        <div class="app-window-body">
+          <div class="app-window-row"><p class="app-window-label">PO</p><p class="app-window-value">PO-88214</p></div>
+          <div class="app-window-row"><p class="app-window-label">Supplier</p><p class="app-window-value">Bright Byte Supply</p></div>
+          <div class="app-window-row is-hit">
+            <p class="app-window-label">SKU</p>
+            <p class="app-window-value is-target"><span class="app-window-text">0081234567890</span><span class="app-window-beam" aria-hidden="true"></span></p>
+          </div>
+          <div class="app-window-row"><p class="app-window-label">Lot code</p><p class="app-window-value is-empty">waiting</p></div>
+          <div class="app-window-row"><p class="app-window-label">Qty</p><p class="app-window-value">24</p></div>
+        </div>
+        <figcaption class="app-window-caption"><svg class="g-bar" aria-hidden="true"><use href="#g-code-128"/></svg><span>The scan typed itself in. You're still in your inventory system.</span></figcaption>
+      </figure>
+    </div>
+
+    <h2 id="zoom" class="font-anton text-4xl text-white scroll-mt-24">SLIDE TO ZOOM. REACH FARTHER.</h2>
+    <div class="split-section split-section--flip mt-6">
+      <div class="split-copy">
+        <p class="split-lede">Most scanning keyboards give you one fixed read window. You bring the code to them.</p>
+        <p>ScanBoard has a zoom slider instead. Slide it and the scan area widens, so a label at arm's length and a label at the far end of the pallet both read. Reach a code on the top of a stacked load, across an aisle, or on the far side of a carton you haven't picked up yet — without walking to it, without setting the box down, without slowing your pick rate to satisfy the scanner.</p>
+        <p class="split-note">It's the one feature the other scanning keyboards don't have.</p>
+      </div>
+      <figure class="zoom-compare">
+        <div class="zoom-panel">
+          <p class="zoom-panel-label">Other scanning keyboards</p>
+          <div class="zoom-stage">
+            <div class="zoom-window is-fixed"><svg class="g-bar g-bar--tiny" aria-hidden="true"><use href="#g-code-128"/></svg></div>
+            <svg class="g-bar g-bar--tiny is-outside" aria-hidden="true"><use href="#g-code-qr"/></svg>
+          </div>
+          <p class="zoom-panel-caption">Fixed window. Distant codes sit outside it.</p>
+        </div>
+        <div class="zoom-panel is-scanboard">
+          <p class="zoom-panel-label">ScanBoard</p>
+          <div class="zoom-stage">
+            <div class="zoom-window is-wide"><svg class="g-bar g-bar--tiny" aria-hidden="true"><use href="#g-code-128"/></svg><svg class="g-bar g-bar--tiny" aria-hidden="true"><use href="#g-code-qr"/></svg></div>
+          </div>
+          <div class="zoom-slider">
+            <span class="zoom-slider-track" aria-hidden="true"><span class="zoom-slider-fill"></span><span class="zoom-slider-knob"></span></span>
+            <span class="zoom-slider-ends"><span>close up</span><span>across the aisle</span></span>
+          </div>
+          <p class="zoom-panel-caption">The slider widens the read area. Near and far both read.</p>
+        </div>
+      </figure>
+    </div>
+
+    <h2 id="codes" class="font-anton text-4xl text-white scroll-mt-24">EVERY CODE THEY PRINT</h2>
+    <div class="codes-block mt-6">
+      <p class="codes-lede">Labels on the floor aren't all QR codes. ScanBoard reads the full 1D and 2D family, so it reads what your suppliers and your customers already print — retail UPCs, carrier labels, industrial and healthcare 2D, everything in between.</p>
+      <ul class="code-chips">
+        <li>QR Code</li>
+        <li>Code 128</li>
+        <li>Code 39</li>
+        <li>Code 93</li>
+        <li>EAN-13</li>
+        <li>EAN-8</li>
+        <li>UPC-A</li>
+        <li>UPC-E</li>
+        <li>ITF-14</li>
+        <li>Codabar</li>
+        <li>Data Matrix</li>
+        <li>PDF417</li>
+        <li>Aztec</li>
+        <li>GS1-128 (FNC1)</li>
+      </ul>
+      <p class="codes-note">Pro formatting and regex reshape a code on the way in — add a prefix, strip a check digit, or match a pattern before it lands in the field your system expects.</p>
+    </div>
 
     <h2 id="workflow" class="font-anton text-4xl text-white mt-16 scroll-mt-24">HOW IT RUNS A SHIFT</h2>
     <div class="flex flex-col md:flex-row gap-5 mt-6">

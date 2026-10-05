@@ -7,19 +7,26 @@
     ["header > div", "pop"],
     ["main > h2", "slide"],
     ["main > ul > li", "up"],
+    [".split-section", "up"],
+    [".app-window", "pop"],
+    [".zoom-compare", "up"],
+    [".zoom-panel", "up"],
+    [".codes-block", "up"],
+    [".code-chips > li", "up"],
     ["main > div.flex > div", "up"],
     [".video-block", "up"],
     [".scan-process", "up"],
     [".warehouse-mockup", "pop"],
     [".device-gallery > figure", "up"],
     [".contact-section", "up"],
+    ["footer > div", "up"],
     ["footer > p", "up"],
   ];
   const targets = [];
   groups.forEach(([selector, effect]) => {
     document.querySelectorAll(selector).forEach((element, index) => {
       element.dataset.reveal = effect;
-      const stagger = selector.includes("li") || selector.includes("div.flex") || selector.includes("figure");
+      const stagger = selector.includes("li") || selector.includes("div.flex") || selector.includes("figure") || selector.includes(".zoom-panel");
       element.style.setProperty("--reveal-delay", `${stagger ? (index % 4) * 90 : 0}ms`);
       targets.push(element);
     });

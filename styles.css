@@ -85,6 +85,20 @@ body > div:first-of-type > nav > div:last-child {
   border-radius: var(--nav-curve) 0 0 0;
 }
 
+/* The four links plus the badge need ~375px, but this band only frees 356px,
+   so flex used to squeeze each link to its min-content width and wrap it mid-word.
+   Tightening the gap and stepping the type down keeps every label on one line. */
+@media (min-width: 768px) and (max-width: 899px) {
+  body > div:first-of-type > nav > div:last-child > ul {
+    gap: 16px;
+    font-size: 0.9rem;
+  }
+}
+
+body > div:first-of-type > nav > div:last-child > ul > li > a {
+  white-space: nowrap;
+}
+
 .play-store-cta {
   position: relative;
   display: inline-block;
@@ -348,6 +362,464 @@ body > div:first-of-type > main > ul > li h3 {
 
 body > div:first-of-type > main > ul > li p {
   color: #3f3f46;
+}
+
+.g-symbols {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Shallower tilt than the four feature tiles: this card is wide, so a steeper
+   angle would drag its corners past the row above. */
+.feature-card--brand {
+  --feature-tilt: -0.9deg;
+  border-radius: 2.9rem 3.3rem 3rem 3.2rem;
+}
+
+body > div:first-of-type > main > ul > li.feature-card--brand {
+  min-height: 0;
+  padding: 26px 30px;
+}
+
+.brand-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 34px;
+}
+
+.brand-logos {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+}
+
+.brand-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+}
+
+/* Stock logo art ships on opaque white, so the tile keeps a white plate plus the
+   same inset ring as the ScanBoard icon. Real customer logos are detailed marks,
+   not icon glyphs, so this one gets far more room than the app icon beside it —
+   at 58px its lettering turns to grey mush. */
+.brand-customer-logo {
+  width: 116px;
+  height: 116px;
+  border-radius: 22px;
+  padding: 8px;
+  background: #fff;
+  object-fit: contain;
+  box-shadow: inset 0 0 0 2px rgb(183 28 28 / 35%);
+}
+
+.brand-tile-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #7f0000;
+  white-space: nowrap;
+}
+
+.brand-arrow::before {
+  content: "→";
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #b71c1c;
+}
+
+.brand-copy {
+  flex: 1 1 320px;
+}
+
+.split-section {
+  display: grid;
+  gap: 34px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .split-section {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(34px, 5vw, 64px);
+  }
+
+  .split-section--flip > .split-copy { order: 2; }
+}
+
+.split-copy > p {
+  margin-top: 14px;
+  color: rgb(255 255 255 / 0.86);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.split-copy > p:first-of-type { margin-top: 0; }
+
+.split-copy > .split-lede {
+  font-family: "Anton", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.split-copy > .split-note {
+  padding: 12px 16px;
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 13%);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tick-list {
+  display: grid;
+  gap: 13px;
+  margin-top: 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.tick-list > li {
+  position: relative;
+  padding-left: 32px;
+  color: rgb(255 255 255 / 0.86);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Checkmark built from two borders so it scales with the text without an icon. */
+.tick-list > li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.55em;
+  width: 13px;
+  height: 8px;
+  border-left: 2.5px solid #ffcdd2;
+  border-bottom: 2.5px solid #ffcdd2;
+  rotate: -45deg;
+}
+
+.app-window {
+  padding-bottom: 18px;
+  border-radius: 1.6rem;
+  background: #fff;
+  color: #241313;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgb(75 0 0 / 30%);
+}
+
+.app-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  background: #f3f1f1;
+  border-bottom: 1px solid #e6e2e2;
+}
+
+.app-window-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #d6d1d1;
+}
+
+.app-window-title {
+  margin-left: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b6464;
+}
+
+.app-window-body {
+  display: grid;
+  gap: 2px;
+  padding: 10px 16px 6px;
+}
+
+.app-window-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px;
+}
+
+.app-window-label {
+  flex: 0 0 68px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8b8383;
+}
+
+.app-window-value {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid #ddd7d7;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #241313;
+  overflow: hidden;
+}
+
+.app-window-value.is-empty {
+  border-style: dashed;
+  color: #b3abab;
+  font-weight: 500;
+}
+
+.app-window-row.is-hit .app-window-value {
+  border-color: #b71c1c;
+  box-shadow: 0 0 0 3px rgb(183 28 28 / 18%);
+}
+
+.app-window-text {
+  position: relative;
+  z-index: 1;
+  animation: app-window-text 2.8s ease infinite;
+}
+
+/* The beam sweeps the field first, then the value lands — same 2.8s loop as
+   .app-window-text so the two stay in lockstep on every replay. */
+.app-window-beam {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 3px;
+  background: #e53935;
+  box-shadow: 0 0 12px 2px rgb(229 57 53 / 70%);
+  animation: app-window-beam 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.app-window-caption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 0 16px;
+  color: #3f3f46;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.g-bar {
+  flex: 0 0 auto;
+  width: 62px;
+  height: 30px;
+  padding: 4px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgb(36 19 19 / 18%);
+  color: #241313;
+}
+
+.g-bar--tiny {
+  width: 40px;
+  height: 26px;
+}
+
+.zoom-compare {
+  display: grid;
+  gap: 18px;
+}
+
+.zoom-panel {
+  padding: 18px;
+  border-radius: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 20%);
+  background: rgb(255 255 255 / 10%);
+}
+
+.zoom-panel.is-scanboard {
+  border-color: transparent;
+  background: #fff;
+  color: #241313;
+  box-shadow: 0 18px 40px rgb(75 0 0 / 30%);
+}
+
+.zoom-panel-label {
+  font-family: "Anton", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: #ffcdd2;
+}
+
+.zoom-panel.is-scanboard .zoom-panel-label { color: #7f0000; }
+
+.zoom-stage {
+  position: relative;
+  height: 76px;
+  margin-top: 14px;
+  border-radius: 1rem;
+  background: rgb(75 0 0 / 22%);
+}
+
+.zoom-panel.is-scanboard .zoom-stage { background: #f6f1f1; }
+
+.zoom-window {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  border: 2px dashed #ffcdd2;
+  border-radius: 12px;
+}
+
+.zoom-window.is-fixed { left: 14px; width: 42%; }
+
+.zoom-window.is-wide {
+  left: 14px;
+  width: calc(100% - 28px);
+  border-style: solid;
+  border-color: #b71c1c;
+}
+
+.zoom-panel.is-scanboard .g-bar--tiny { color: #241313; }
+
+/* Positioned outside .zoom-window.is-fixed, so it reads as the missed code. */
+.is-outside {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  translate: 0 -50%;
+  color: #fff;
+  opacity: 0.4;
+}
+
+.zoom-slider { margin-top: 14px; }
+
+.zoom-slider-track {
+  position: relative;
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background: #e6dede;
+}
+
+.zoom-slider-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 74%;
+  border-radius: 999px;
+  background: #b71c1c;
+  animation: zoom-slider-fill 4s ease-in-out infinite alternate;
+}
+
+.zoom-slider-knob {
+  position: absolute;
+  top: 50%;
+  left: 74%;
+  width: 22px;
+  height: 22px;
+  translate: -50% -50%;
+  border: 3px solid #b71c1c;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 3px 8px rgb(75 0 0 / 35%);
+  animation: zoom-slider-knob 4s ease-in-out infinite alternate;
+}
+
+.zoom-slider-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #8b8383;
+}
+
+.zoom-panel-caption {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgb(255 255 255 / 0.82);
+}
+
+.zoom-panel.is-scanboard .zoom-panel-caption { color: #3f3f46; }
+
+.codes-lede {
+  max-width: 68ch;
+  color: rgb(255 255 255 / 0.86);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.code-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 0;
+  list-style: none;
+}
+
+.code-chips > li {
+  padding: 9px 16px;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.codes-note {
+  max-width: 68ch;
+  margin-top: 24px;
+  color: #ffcdd2;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+@keyframes app-window-beam {
+  0% { left: 0; opacity: 0; }
+  10% { opacity: 1; }
+  44% { left: calc(100% - 3px); opacity: 1; }
+  50%, 100% { left: calc(100% - 3px); opacity: 0; }
+}
+
+@keyframes app-window-text {
+  0%, 46% { opacity: 0; }
+  70%, 100% { opacity: 1; }
+}
+
+/* Knob and fill share timing so the fill's right edge always meets the knob. */
+@keyframes zoom-slider-fill {
+  from { width: 22%; }
+  to { width: 78%; }
+}
+
+@keyframes zoom-slider-knob {
+  from { left: 22%; }
+  to { left: 78%; }
 }
 
 body > div:first-of-type > main > div.flex {
@@ -786,6 +1258,10 @@ body > div:first-of-type > footer {
   .scan-process-line,
   .scan-process-results,
   .scan-process-code { animation: none; }
+  .app-window-beam,
+  .app-window-row.is-hit .app-window-text,
+  .zoom-slider-fill,
+  .zoom-slider-knob { animation: none; }
 }
 
 @media (max-width: 640px) {
@@ -831,6 +1307,25 @@ body > div:first-of-type > footer {
   .scan-process-set { gap: 74px; padding-right: 74px; }
 
   .contact-form-grid { grid-template-columns: 1fr; }
+
+  .app-window-label { flex-basis: 54px; }
+
+  .app-window-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .brand-strip { gap: 18px; }
+
+  /* The logo row is a nowrap flex line; at 116px the customer tile no longer
+     fits beside the app icon and gets clipped, so scale it back down here. */
+  .brand-customer-logo {
+    width: 96px;
+    height: 96px;
+    border-radius: 20px;
+    padding: 6px;
+  }
 
   .play-store-cta {
     flex-basis: 10.5rem;
