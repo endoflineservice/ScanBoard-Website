@@ -14,7 +14,10 @@ body {
 body > div:first-of-type {
   width: min(100%, 960px);
   margin: 0 auto;
-  padding: 0 0 14px;
+  /* No bottom padding: the footer itself carries the card's bottom padding and
+     its own bottom radius, so the red reaches the rounded edge instead of
+     sitting above a white band. */
+  padding: 0;
   background: #fff;
   border-radius: 2rem;
   overflow: hidden;
@@ -694,7 +697,50 @@ body > div:first-of-type > main > div.flex > div p {
 body > div:first-of-type > footer {
   max-width: none;
   margin-top: 57px;
-  border-radius: 2.5rem 2.5rem 0 0;
+  padding-bottom: 28px;
+  /* The bottom radius mirrors the card wrapper's, so the wrapper's
+     overflow clip follows the curve instead of shaving the corners off. */
+  border-radius: 2.5rem 2.5rem 2rem 2rem;
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px 14px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.footer-contact-name {
+  color: #fff;
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.footer-contact-email {
+  color: #ffcdd2;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.footer-contact-email:hover {
+  color: #fff;
+}
+
+.footer-contact-email:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.footer-legal {
+  padding-top: 16px;
+  border-top: 1px solid rgb(255 255 255 / 22%);
 }
 
 /* Once revealed, content stays readable when scrolling back up. */

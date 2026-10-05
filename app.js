@@ -80,7 +80,7 @@
       message,
     ];
     const subject = `ScanBoard website inquiry from ${name}`;
-    window.location.href = `mailto:corryrholt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    window.location.href = `mailto:CorryRHolt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
   });
 })();
 
