@@ -318,13 +318,6 @@ body > div:first-of-type > main > ul > li {
 /* Each feature has a fixed card-like silhouette. The individual `rotate`
    values are deliberately static, so the cards feel casually placed without
    ever spinning or wobbling. */
-.feature-card-shapes {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
-
 .feature-card {
   overflow: hidden;
   box-shadow: none;
