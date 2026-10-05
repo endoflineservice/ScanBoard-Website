@@ -322,18 +322,16 @@ body > div:first-of-type > main > ul > li {
 
 .feature-card--history {
   --feature-tilt: 2.8deg;
-  padding: 55px 35px 20px;
   scale: 1.06;
   z-index: 1;
-  clip-path: url(#rounded-pentagon);
+  border-radius: 3.2rem 2.9rem 3.5rem 2.7rem;
 }
 
 .feature-card--private {
   --feature-tilt: -2.6deg;
-  padding: 67px 29px 15px;
   scale: 1.06;
   z-index: 1;
-  clip-path: url(#rounded-hexagon);
+  border-radius: 2.8rem 3.5rem 3.1rem 3.3rem;
 }
 
 .feature-card--pro {
