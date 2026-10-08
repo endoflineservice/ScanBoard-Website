@@ -1077,34 +1077,6 @@ body > div:first-of-type > main > div.flex > div p {
 .contact-form button:active { translate: 0 0; box-shadow: 0 8px 18px rgb(127 0 0 / 26%); }
 .contact-form button:focus-visible { outline: 3px solid #b71c1c; outline-offset: 3px; }
 
-.warehouse-mockup {
-  position: relative;
-  margin: 36px 0 0;
-  overflow: hidden;
-  border: 7px solid #7f0000;
-  border-radius: 2rem;
-  background: #241313;
-  box-shadow: 0 8px 0 #8f0b0b;
-}
-
-.warehouse-mockup img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.warehouse-mockup figcaption {
-  position: absolute;
-  right: 18px;
-  bottom: 14px;
-  padding: 7px 12px;
-  color: #7f0000;
-  background: #ffebee;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
 .device-gallery {
   display: flex;
   align-items: flex-end;
