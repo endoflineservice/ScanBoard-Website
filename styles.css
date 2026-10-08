@@ -837,6 +837,10 @@ body > div:first-of-type > main > div.flex > div p {
 }
 
 .video-block {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
   margin-top: 32px;
 }
 
@@ -852,17 +856,79 @@ body > div:first-of-type > main > div.flex > div p {
 /* This clip is a 9:16 phone recording. Keep the whole frame and present it as a
    tall centred panel; cropping to 16:9 would cut most of it away. */
 .section-video-tall {
-  width: auto;
-  max-width: 100%;
-  height: clamp(320px, 68vw, 460px);
+  max-width: 300px;
   margin-inline: auto;
 }
 
+.video-copy {
+  max-width: 52ch;
+}
+
+.video-lead {
+  margin: 0;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  line-height: 1.15;
+  color: #fff;
+}
+
 .video-caption {
-  max-width: 62ch;
-  margin-top: 18px;
+  margin-top: 14px;
   color: rgba(255, 255, 255, 0.86);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.video-options-title {
+  margin: 24px 0 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffcdd2;
+}
+
+.video-options {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.video-options li {
+  position: relative;
+  padding-left: 26px;
+  color: rgba(255, 255, 255, 0.82);
   font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.video-options li strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.video-options li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: #ffcdd2;
+  box-shadow: 0 0 0 3px rgb(255 205 210 / 25%);
+}
+
+@media (max-width: 899px) {
+  .video-block {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-copy {
+    max-width: none;
+  }
 }
 
 /* A small moving package line makes the workflow feel tangible without
