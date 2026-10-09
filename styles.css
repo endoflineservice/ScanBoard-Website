@@ -306,6 +306,9 @@ body > div:first-of-type > main > ul {
 body > div:first-of-type > main > ul {
   gap: 36px;
   margin-top: 32px;
+  /* Shadow the connected collection once.  That keeps the joins clean:
+     they are internal seams, not separate objects with shadows on top. */
+  filter: drop-shadow(0 14px 12px rgb(75 0 0 / 38%));
 }
 
 body > div:first-of-type > main > ul > li {
@@ -321,8 +324,91 @@ body > div:first-of-type > main > ul > li {
 .feature-card {
   overflow: hidden;
   box-shadow: none;
-  filter: drop-shadow(0 14px 12px rgb(75 0 0 / 38%));
+  filter: none;
   rotate: var(--feature-tilt, 0deg);
+}
+
+.jelly-host {
+  position: relative;
+  overflow: visible;
+}
+
+.jelly {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--jelly-color, #fff);
+  /* The slim centre plus the two wide ends makes an inward-curving,
+     hourglass join rather than a detached pill. */
+  border-radius: 999px;
+}
+
+.feature-card--brand { position: relative; z-index: 1; }
+
+/* The card face sits ABOVE the jellies so connectors tuck behind the cards;
+   text sits above the face. Connectors poke out only in the gaps. */
+.jelly-host::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--jelly-face, #fff);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.jelly-host > *:not(.jelly) {
+  position: relative;
+  z-index: 1;
+}
+
+.jelly--h {
+  top: var(--jelly-y, 46%);
+  left: 100%;
+  /* Grid tracks are 36px apart. Each bridge tucks 8px under both card
+     faces, then pinches gracefully through the middle of the gap. */
+  width: 72px;
+  height: 44px;
+  margin-top: -22px;
+  transform: translateX(-18px);
+  clip-path: path("M 0 0 C 17 0 21 8 36 8 C 51 8 55 0 72 0 L 72 44 C 55 44 51 36 36 36 C 21 36 17 44 0 44 Z");
+}
+
+.jelly--hl {
+  top: var(--jelly-y, 46%);
+  right: 100%;
+  width: 72px;
+  height: 44px;
+  margin-top: -22px;
+  transform: translateX(18px);
+  clip-path: path("M 0 0 C 17 0 21 8 36 8 C 51 8 55 0 72 0 L 72 44 C 55 44 51 36 36 36 C 21 36 17 44 0 44 Z");
+}
+
+.jelly--v {
+  left: var(--jelly-x, 36%);
+  top: 100%;
+  /* Match the 36px row gap, with the same inward pinch as horizontal
+     bridges. */
+  width: 44px;
+  height: 72px;
+  margin-left: -22px;
+  transform: translateY(-18px);
+  clip-path: path("M 0 0 C 0 17 8 21 8 36 C 8 51 0 55 0 72 L 44 72 C 44 55 36 51 36 36 C 36 21 44 17 44 0 Z");
+}
+
+@media (max-width: 639.98px) {
+  /* At one column the links would connect unrelated cards as the grid
+     reflows. Keep the small-screen stack clean instead of leaving a loose
+     vertical stem after a card. */
+  .jelly { display: none; }
+}
+
+@media (max-width: 767.98px) {
+  .jelly--md { display: none; }
+}
+
+@media (min-width: 768px) {
+  .jelly--stack { display: none; }
 }
 
 .feature-card--paste {
