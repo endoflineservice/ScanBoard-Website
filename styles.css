@@ -331,11 +331,16 @@ body > div:first-of-type > main > ul > li {
 .jelly-host {
   position: relative;
   overflow: visible;
+  z-index: 0;
+  isolation: isolate;
 }
 
 .jelly {
   position: absolute;
-  z-index: -1;
+  /* Above the host background, below its face and content.  Negative
+     stacking put the join behind the card in some browsers, which made it
+     appear only while a card happened to create a hover stacking context. */
+  z-index: 0;
   pointer-events: none;
   background: var(--jelly-color, #fff);
   /* The slim centre plus the two wide ends makes an inward-curving,
@@ -353,13 +358,13 @@ body > div:first-of-type > main > ul > li {
   inset: 0;
   border-radius: inherit;
   background: var(--jelly-face, #fff);
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 }
 
 .jelly-host > *:not(.jelly) {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .jelly--h {
