@@ -7,7 +7,7 @@
   <meta name="description" content="ScanBoard is a keyboard with a built-in QR/barcode scanner. Built for warehouse workflows." />
   <link rel="icon" type="image/png" href="assets/icon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css?v=jelly-v26" />
+  <link rel="stylesheet" href="styles.css?v=conversion-v28" />
 </head>
 <body class="min-h-dvh text-base font-normal text-[#1b1b1f] bg-white p-3.5">
 
@@ -22,7 +22,6 @@
         <li><a href="#features" class="hover:text-[#ffcdd2] transition-colors">Features</a></li>
         <li><a href="#workflow" class="hover:text-[#ffcdd2] transition-colors">How it works</a></li>
         <li><a href="#screens" class="hover:text-[#ffcdd2] transition-colors">Screens</a></li>
-        <li><a href="#contact" class="hover:text-[#ffcdd2] transition-colors">Contact Sales</a></li>
       </ul>
       <a href="https://play.google.com/store/apps/details?id=corryholt.scanboard" target="_blank" rel="noopener" class="play-store-cta" aria-label="Get it on Google Play">
         <img src="assets/google-play-badge.png" alt="Get it on Google Play" class="play-store-badge" />
@@ -37,7 +36,11 @@
     <button class="hero-video-toggle" type="button" aria-controls="hero-video" hidden>Play background</button>
     <h1 class="font-anton text-5xl md:text-6xl text-center">SCAN. PASTE. SHIP.</h1>
     <p class="text-center mt-4 max-w-xl mx-auto">The keyboard with a built-in QR/barcode scanner — built for the warehouse floor. Receiving, picking, packing, cycle counts: scan straight into any text field, in whatever app you're already working in. A built-in zoom slider reads codes from across the aisle.</p>
-    <div class="mt-8 bg-[#b71c1c] rounded-[2.5rem] px-4 sm:px-8 pt-8 pb-6">
+    <div class="hero-actions">
+      <a href="https://play.google.com/store/apps/details?id=corryholt.scanboard" target="_blank" rel="noopener">GET SCANBOARD ON GOOGLE PLAY <span aria-hidden="true">→</span></a>
+      <p>Android · no account required</p>
+    </div>
+    <div class="hero-status mt-8 bg-[#b71c1c] rounded-[2.5rem] px-4 sm:px-8 pt-8 pb-6">
       <div class="flex flex-col sm:flex-row gap-6 items-center">
         <img src="assets/icon.png" alt="" class="size-28 rounded-[2rem] shadow-xl" />
         <div>
@@ -176,11 +179,23 @@
 
     <h2 id="workflow" class="font-anton text-4xl text-white mt-16 scroll-mt-24">HOW IT RUNS A SHIFT</h2>
     <div class="flex flex-col md:flex-row gap-5 mt-6">
-      <div class="flex-1 bg-[#ffebee] rounded-[2rem] p-6 jelly-host" style="--jelly-face:#ffebee"><span class="font-anton text-3xl text-[#b71c1c]">01</span><h3 class="font-anton text-lg mt-2">RECEIVING</h3><p class="text-sm mt-1">Scan inbound barcodes into the inventory app. Every ID lands in the right field, first try.</p><span class="jelly jelly--h jelly--md" style="--jelly-y:52%;--jelly-color:#ffebee" aria-hidden="true"></span></div>
-      <div class="flex-1 bg-[#ffebee] rounded-[2rem] p-6 jelly-host" style="--jelly-face:#ffebee"><span class="font-anton text-3xl text-[#b71c1c]">02</span><h3 class="font-anton text-lg mt-2">PICKING</h3><p class="text-sm mt-1">Confirm bin locations and SKUs without putting down the scanner flow or slowing your pick rate.</p><span class="jelly jelly--h jelly--md" style="--jelly-y:52%;--jelly-color:#ffebee" aria-hidden="true"></span><span class="jelly jelly--v jelly--stack" style="--jelly-x:40%;--jelly-color:#ffebee" aria-hidden="true"></span></div>
+      <div class="flex-1 bg-[#ffebee] rounded-[2rem] p-6"><span class="font-anton text-3xl text-[#b71c1c]">01</span><h3 class="font-anton text-lg mt-2">RECEIVING</h3><p class="text-sm mt-1">Scan inbound barcodes into the inventory app. Every ID lands in the right field, first try.</p></div>
+      <div class="flex-1 bg-[#ffebee] rounded-[2rem] p-6"><span class="font-anton text-3xl text-[#b71c1c]">02</span><h3 class="font-anton text-lg mt-2">PICKING</h3><p class="text-sm mt-1">Confirm bin locations and SKUs without putting down the scanner flow or slowing your pick rate.</p></div>
       <div class="flex-1 bg-[#ffebee] rounded-[2rem] p-6"><span class="font-anton text-3xl text-[#b71c1c]">03</span><h3 class="font-anton text-lg mt-2">SHIPPING</h3><p class="text-sm mt-1">Drop tracking numbers into carrier apps and labels in seconds — no retyping, no typos.</p></div>
     </div>
-    <div class="scan-process" aria-label="An animated package scanning illustration">
+    <section class="workflow-proof" aria-label="A barcode landing in an inventory field">
+      <div class="workflow-proof-heading"><span>SEE THE HANDOFF</span><p>One scan. The active field fills itself.</p></div>
+      <div class="workflow-proof-flow">
+        <div class="proof-label"><span class="proof-label-caption">LABEL IN HAND</span><strong>1Z 84A 12 03 9934</strong><i aria-hidden="true"></i></div>
+        <span class="proof-arrow" aria-hidden="true">→</span>
+        <div class="proof-window">
+          <div class="proof-window-bar"><span></span><span></span><span></span><b>WarehouseOS · Receiving</b></div>
+          <div class="proof-window-body"><span>Tracking number</span><output>1Z84A12039934<span class="proof-caret" aria-hidden="true"></span></output><small>✓ Sent directly to the focused field</small></div>
+        </div>
+      </div>
+      <p class="workflow-proof-note">No integration, copy/paste step, or app-switching in between.</p>
+    </section>
+    <div class="scan-process" hidden aria-label="An animated package scanning illustration">
       <svg class="scan-process-symbols" aria-hidden="true">
         <symbol id="scan-process-carton" viewBox="17.167 17.5 65.333 62.5">
           <g>
@@ -324,6 +339,6 @@
   </footer>
   </div>
 
-  <script src="app.js?v=site-content-v2"></script>
+  <script src="app.js?v=conversion-v3"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
     [".code-chips > li", "up"],
     ["main > div.flex > div", "up"],
     [".video-block", "up"],
-    [".scan-process", "up"],
+    [".workflow-proof", "up"],
     [".warehouse-mockup", "pop"],
     [".device-gallery > figure", "up"],
     [".contact-section", "up"],

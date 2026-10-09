@@ -131,6 +131,34 @@ body > div:first-of-type > nav > div:last-child > ul > li > a {
   transform: scale(1.06);
 }
 
+.hero-actions {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.hero-actions > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: #fff;
+  color: #b71c1c;
+  font-family: "Anton", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgb(75 0 0 / 26%);
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.hero-actions > a:hover,
+.hero-actions > a:focus-visible { transform: translateY(-2px); background: #ffebee; }
+.hero-actions > a span { font-size: 1.35rem; line-height: 0.7; }
+.hero-actions > p { margin: 0; font-size: 0.75rem; color: rgb(255 255 255 / 76%); }
+
 .play-store-cta .circle {
   position: absolute;
   inset: 0 auto 0 0;
@@ -248,35 +276,35 @@ body > div:first-of-type > header > p {
   color: rgba(255, 255, 255, 0.9);
 }
 
-body > div:first-of-type > header > div {
-  margin-top: clamp(100px, 14vw, 160px);
+body > div:first-of-type > header > .hero-status {
+  margin-top: clamp(48px, 6vw, 70px);
   padding: 30px 34px 24px;
   background: #a30d0d;
   border-radius: 2rem;
   color: #fff;
 }
 
-body > div:first-of-type > header > div h2 {
+body > div:first-of-type > header > .hero-status h2 {
   color: #fff;
 }
 
-body > div:first-of-type > header > div p {
+body > div:first-of-type > header > .hero-status p {
   color: rgba(255, 255, 255, 0.9);
 }
 
-body > div:first-of-type > header > div > div:nth-child(2) p {
+body > div:first-of-type > header > .hero-status > div:nth-child(2) p {
   color: rgba(255, 255, 255, 0.94);
 }
 
-body > div:first-of-type > header > div > div > div:nth-child(2) p {
+body > div:first-of-type > header > .hero-status > div > div:nth-child(2) p {
   color: #fff !important;
 }
 
-body > div:first-of-type > header > div > div {
+body > div:first-of-type > header > .hero-status > div > div {
   color: #7f0000;
 }
 
-body > div:first-of-type > header > div > div p {
+body > div:first-of-type > header > .hero-status > div > div p {
   color: #7f0000;
 }
 
@@ -1022,8 +1050,124 @@ body > div:first-of-type > main > div.flex > div p {
   }
 }
 
-/* A small moving package line makes the workflow feel tangible without
-   depending on an external animation library. */
+.workflow-proof {
+  margin-top: 32px;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 2rem;
+  background: #ffebee;
+  color: #241313;
+  box-shadow: 0 12px 28px rgb(75 0 0 / 16%);
+}
+
+.workflow-proof-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.workflow-proof-heading span {
+  color: #b71c1c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.workflow-proof-heading p {
+  margin: 0;
+  color: #7f0000;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+  line-height: 1.1;
+}
+
+.workflow-proof-flow {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 32px);
+  margin-top: 22px;
+}
+
+.proof-label {
+  position: relative;
+  display: grid;
+  gap: 7px;
+  flex: 0 1 240px;
+  min-width: 0;
+  padding: 18px;
+  border: 2px solid #f2bfc4;
+  border-radius: 1.25rem;
+  background: #fff;
+}
+
+.proof-label-caption {
+  color: #8c3139;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.proof-label strong {
+  overflow: hidden;
+  font-size: clamp(0.8rem, 1.7vw, 1rem);
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.proof-label i {
+  display: block;
+  height: 26px;
+  margin-top: 6px;
+  background: repeating-linear-gradient(90deg, #241313 0 2px, transparent 2px 4px, #241313 4px 7px, transparent 7px 9px, #241313 9px 10px, transparent 10px 13px);
+}
+
+.proof-arrow {
+  flex: 0 0 auto;
+  color: #b71c1c;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 800;
+}
+
+.proof-window {
+  flex: 1 1 360px;
+  overflow: hidden;
+  border: 1px solid #e0c9cb;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 8px 16px rgb(100 0 0 / 10%);
+}
+
+.proof-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 14px;
+  background: #f4eeee;
+  color: #6c6060;
+  font-size: 0.72rem;
+}
+
+.proof-window-bar span { width: 8px; height: 8px; border-radius: 50%; background: #cfbebe; }
+.proof-window-bar b { margin-left: 6px; font-weight: 700; }
+
+.proof-window-body { display: grid; gap: 8px; padding: 18px; }
+.proof-window-body > span { color: #746666; font-size: 0.75rem; font-weight: 700; }
+.proof-window-body output { display: flex; align-items: center; min-height: 42px; padding: 0 12px; border: 2px solid #b71c1c; border-radius: 0.7rem; color: #241313; font-size: 1rem; font-weight: 750; letter-spacing: 0.04em; box-shadow: 0 0 0 3px rgb(183 28 28 / 10%); }
+.proof-window-body small { color: #167344; font-size: 0.72rem; font-weight: 700; }
+
+.proof-caret { width: 2px; height: 1.2em; margin-left: 2px; background: #b71c1c; animation: proof-caret 900ms steps(1) infinite; }
+
+.workflow-proof-note { margin: 18px 0 0; color: #6b5355; font-size: 0.82rem; text-align: center; }
+
+@keyframes proof-caret { 50% { opacity: 0; } }
+
+/* Kept in the markup temporarily so the old illustration can be restored
+   without losing its hand-drawn SVG source; it is no longer displayed. */
+.scan-process[hidden] { display: none; }
+
+/* Legacy moving package illustration. */
 .scan-process {
   position: relative;
   height: 302px;
@@ -1404,6 +1548,7 @@ body > div:first-of-type > footer {
   .scan-process-line,
   .scan-process-results,
   .scan-process-code { animation: none; }
+  .proof-caret { animation: none; }
   .app-window-beam,
   .app-window-row.is-hit .app-window-text,
   .zoom-slider-fill,
@@ -1425,7 +1570,7 @@ body > div:first-of-type > footer {
     padding-left: 10px;
   }
 
-  body > div:first-of-type > header > div {
+  body > div:first-of-type > header > .hero-status {
     padding-inline: 20px;
   }
 
@@ -1441,16 +1586,12 @@ body > div:first-of-type > footer {
     height: min(calc(100% - 16px), 540px);
   }
 
-  .scan-process { height: 266px; }
-  .scan-process-belt { top: 88px; height: 86px; }
-  .scan-process-track { top: 44px; animation-name: scan-process-moving-mobile; }
-  .scan-process-phone { top: 25px; right: 12px; width: 136px; }
-  .scan-process-box { width: 94px; height: 90px; }
-  .scan-process-pallet { width: 128px; height: 99px; }
-  .scan-process-set > .scan-process-box:nth-child(1) { transform: translateY(30px); }
-  .scan-process-set > .scan-process-box:nth-child(2) { transform: translateY(20px); }
-  .scan-process-set > .scan-process-box:nth-child(3) { transform: translateY(36px); }
-  .scan-process-set { gap: 74px; padding-right: 74px; }
+  .workflow-proof { padding: 22px 18px; }
+  .workflow-proof-heading { display: grid; gap: 8px; }
+  .workflow-proof-flow { display: grid; grid-template-columns: 1fr; }
+  .proof-label { flex-basis: auto; }
+  .proof-arrow { justify-self: center; transform: rotate(90deg); }
+  .proof-window { flex-basis: auto; }
 
   .contact-form-grid { grid-template-columns: 1fr; }
 
