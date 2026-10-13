@@ -131,6 +131,8 @@
 
   fab.addEventListener("click", () => (isOpen() ? close() : open()));
   backdrop.addEventListener("click", close);
+  const closeButton = popover.querySelector(".sales-popover-close");
+  if (closeButton) closeButton.addEventListener("click", close);
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && isOpen()) close();
   });
