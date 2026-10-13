@@ -759,8 +759,10 @@ body > div:first-of-type > main > ul > li.feature-card--brand {
 .zoom-panel {
   padding: 18px;
   border-radius: 1.5rem;
-  border: 1px solid rgb(255 255 255 / 20%);
-  background: rgb(255 255 255 / 10%);
+  border: 1px solid transparent;
+  background: #fff;
+  color: #241313;
+  box-shadow: 0 18px 40px rgb(75 0 0 / 30%);
 }
 
 .zoom-panel.is-scanboard {
@@ -774,16 +776,20 @@ body > div:first-of-type > main > ul > li.feature-card--brand {
   font-family: "Anton", sans-serif;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
-  color: #ffcdd2;
+  color: #7f0000;
 }
 
 .zoom-panel.is-scanboard .zoom-panel-label { color: #7f0000; }
 
 .zoom-stage {
   position: relative;
-  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 14px;
+  aspect-ratio: 4 / 3;
   border-radius: 1rem;
+  overflow: hidden;
   background: rgb(75 0 0 / 22%);
 }
 
@@ -812,6 +818,14 @@ body > div:first-of-type > main > ul > li.feature-card--brand {
 }
 
 .zoom-panel.is-scanboard .g-bar--tiny { color: #241313; }
+
+.zoom-shot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
 
 /* Positioned outside .zoom-window.is-fixed, so it reads as the missed code. */
 .is-outside {
@@ -871,7 +885,7 @@ body > div:first-of-type > main > ul > li.feature-card--brand {
   margin-top: 12px;
   font-size: 0.82rem;
   line-height: 1.45;
-  color: rgb(255 255 255 / 0.82);
+  color: #3f3f46;
 }
 
 .zoom-panel.is-scanboard .zoom-panel-caption { color: #3f3f46; }
