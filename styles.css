@@ -1447,14 +1447,68 @@ body > div:first-of-type > main > div.flex > div p {
 .contact-form button:active { translate: 0 0; box-shadow: 0 8px 18px rgb(127 0 0 / 26%); }
 .contact-form button:focus-visible { outline: 3px solid #b71c1c; outline-offset: 3px; }
 
-.device-gallery {
+.device-carousel {
+  position: relative;
+  margin-top: clamp(48px, 7vw, 80px);
+  padding: 24px 0 28px;
+  overflow: hidden;
+}
+
+.device-carousel::before,
+.device-carousel::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  pointer-events: none;
+}
+
+.device-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, #b71c1c, transparent);
+}
+
+.device-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, #b71c1c, transparent);
+}
+
+.device-carousel--themes {
+  --carousel-duration: 14s;
+}
+
+.device-carousel--screenshots {
+  --carousel-duration: 38s;
+}
+
+.device-track {
   display: flex;
   align-items: flex-end;
-  gap: 32px;
-  margin-top: clamp(48px, 7vw, 80px);
-  overflow-x: auto;
-  padding: 24px 8px 28px;
-  scroll-snap-type: x mandatory;
+  width: max-content;
+  will-change: transform;
+  animation: device-scroll var(--carousel-duration, 30s) linear infinite;
+}
+
+.device-track > .device {
+  margin-right: 32px;
+}
+
+.device-carousel:hover .device-track {
+  animation-play-state: paused;
+}
+
+@keyframes device-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .device-track {
+    animation: none;
+  }
 }
 
 .device {
@@ -1497,6 +1551,10 @@ body > div:first-of-type > main > div.flex > div p {
   border-radius: 12% / 6%;
 }
 
+.device-phone .device-screen--bottom {
+  object-position: bottom;
+}
+
 .device-tablet {
   width: 260px;
 }
@@ -1510,6 +1568,16 @@ body > div:first-of-type > main > div.flex > div p {
 }
 
 .device figcaption {
+  margin-top: 22px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.theme-card figcaption {
   margin-top: 22px;
   color: #fff;
   font-size: 0.8rem;
