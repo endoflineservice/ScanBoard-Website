@@ -468,6 +468,33 @@
   </footer>
   </div>
 
-  <script src="app.js?v=conversion-v3"></script>
+  <!-- Floating "Talk to Sales" button + popover -->
+  <button class="sales-fab" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="sales-popover">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+    TALK TO&nbsp;SALES
+  </button>
+  <div class="sales-backdrop" data-sales-backdrop></div>
+  <section class="sales-popover" id="sales-popover" role="dialog" aria-modal="true" aria-labelledby="sales-popover-title">
+    <div class="sales-popover-head">
+      <div>
+        <span class="sales-popover-kicker">The quick route</span>
+        <h3 id="sales-popover-title" class="sales-popover-title font-anton">TALK TO SALES</h3>
+      </div>
+      <button class="sales-popover-close" type="button" aria-label="Close sales form">&times;</button>
+    </div>
+    <p class="sales-popover-intro">Tell us how your team scans today and where it slows down. A human answers fast.</p>
+    <form class="contact-form sales-form" data-mailto-form>
+      <div class="contact-form-grid">
+        <label>Name <span aria-hidden="true">*</span><input name="name" type="text" autocomplete="name" required /></label>
+        <label>Company <input name="company" type="text" autocomplete="organization" /></label>
+        <label>Email <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required /></label>
+        <label>Phone <input name="phone" type="tel" autocomplete="tel" /></label>
+      </div>
+      <label>Message <span aria-hidden="true">*</span><textarea name="message" rows="2" required></textarea></label>
+      <button type="submit">SEND TO SALES</button>
+    </form>
+  </section>
+
+  <script src="app.js?v=sales-fab"></script>
 </body>
 </html>
