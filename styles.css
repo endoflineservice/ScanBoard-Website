@@ -1175,6 +1175,61 @@ body > div:first-of-type > main > div.flex > div p {
 
 .workflow-proof-note { margin: 18px 0 0; color: #6b5355; font-size: 0.82rem; text-align: center; }
 
+.workflow-proof-next {
+  max-width: 560px;
+  margin: 22px auto 0;
+}
+
+.workflow-proof-next-window {
+  overflow: hidden;
+  border: 1px solid #e0c9cb;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 8px 16px rgb(100 0 0 / 10%);
+}
+
+.workflow-proof-next-body {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+}
+
+.workflow-proof-next-field {
+  display: grid;
+  gap: 7px;
+}
+
+.workflow-proof-next-field > span {
+  color: #746666;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.workflow-proof-next-field output {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 2px solid #b71c1c;
+  border-radius: 0.7rem;
+  color: #241313;
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 0 3px rgb(183 28 28 / 10%);
+}
+
+.workflow-proof-next-field.is-next output {
+  border-color: #e0c9cb;
+  box-shadow: none;
+}
+
+.workflow-proof-next-field small {
+  color: #167344;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
 @keyframes proof-caret { 50% { opacity: 0; } }
 
 /* Kept in the markup temporarily so the old illustration can be restored
