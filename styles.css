@@ -1898,3 +1898,24 @@ body > div:first-of-type > footer {
   .sales-popover { transition: none; }
   .sales-popover { transform: none; }
 }
+
+/* ============================================================
+   Desktop full-screen pass.
+   styles.css owns layout through body > div:first-of-type* selectors that
+   outrank Tailwind utilities on specificity, so widening must happen HERE
+   at matching specificity — Tailwind's max-w-* classes on those elements
+   are inert. Gated at xl (≥1280px) / 2xl (≥1536px) so phone and tablet
+   stay pixel-identical. If you need the page wider on ultra-wide
+   monitors, raise the 1536px step (e.g. 1600px) — do not touch the
+   width rules above these queries.
+   ============================================================ */
+@media (min-width: 1280px) {
+  body > div:first-of-type { width: min(100%, 1280px); }
+  body > div:first-of-type > header h1 { font-size: clamp(3rem, 5vw, 4.5rem); }
+  body > div:first-of-type > main > h2 { font-size: 2.5rem; }
+}
+@media (min-width: 1536px) {
+  body > div:first-of-type { width: min(100%, 1440px); }
+  body > div:first-of-type > header h1 { font-size: clamp(3rem, 5vw, 5rem); }
+  body > div:first-of-type > main > h2 { font-size: 2.75rem; }
+}
